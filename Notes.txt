@@ -1,0 +1,16 @@
+A place to display all of my ideas and projects
+A color switcher based on an Arduino or a mock input for the TAs
+
+projects
+Change of Base Calculator
+
+
+Color style parts
+base
+accent
+accent2 (farther from base than accent one)
+link hover
+text
+header
+header2
+link click
