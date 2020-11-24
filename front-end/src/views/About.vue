@@ -6,7 +6,7 @@
         <div class="image-wrapper">
             <img class='my-image' src="../assets/meCropped.jpg">
         </div>
-        
+
         <h3>
             My name is Timothy Brown
         </h3>
@@ -14,7 +14,7 @@
             I am currently a Math Major at BYU with an emphasis in Applied Mathematics (see <a
                 href="https://acme.byu.edu">this website</a> for details). I enjoy running, swimmming, and most any
             other sport. I also enjoy building things and being creative, which is one of the reasons I've built
-            Skunckcore. I am bilingual and speak both English and Armenian fluently. I am a proud member of The Church
+            Skunckcore. <span v-show="this.armenian">I am bilingual and speak both English and Armenian fluently.</span> I am a proud member of The Church
             of Jesus Christ of Latter-day Saints (AKA Mormons, but we don’t like that name, find out why at <a
                 href="https://www.comeuntochrist.org/beliefs/book-of-mormon/what-is-the-book-of-mormon">comeuntochrist.org</a>
             )
@@ -77,15 +77,17 @@
 <style scoped>
     /*global link style, might need to be changed*/
     a,
-    internal-links{
-        color:var(--link);
+    internal-links {
+        color: var(--link);
     }
+
     a:hover,
-    internal-links:hover{
-        color:var(--link-hover);
+    internal-links:hover {
+        color: var(--link-hover);
     }
-    hr{
-        border-top:2px dashed var(--accent2) !important;
+
+    hr {
+        border-top: 2px dashed var(--accent2) !important;
     }
 
 
@@ -114,6 +116,7 @@
         height: 450px;
         border: 2px solid var(--accent);
     }
+
     h4 {
         font-size: 40px;
         text-align: center;
@@ -137,7 +140,7 @@
     .team-members h5 {
         font-size: 40px;
         text-align: center;
-        color:var(--text);
+        color: var(--text);
     }
 
     .team-members img {
@@ -166,9 +169,9 @@
     }
 
     @media only screen and (max-width:750px) {
-        .image-wrapper{
-            width:100%;
-            display:flex;
+        .image-wrapper {
+            width: 100%;
+            display: flex;
             justify-content: center;
         }
     }
@@ -195,12 +198,13 @@
         this.image = image;
         this.link = link;
     }
+    import axios from 'axios';
     export default {
         name: 'About',
         data: function () {
             return {
                 team: [new teamMember("Joshua Brown", getImgUrl('joshy.jpg')), new teamMember(
-                        "Thomas Andrews",getImgUrl('thomas.jpg')),
+                        "Thomas Andrews", getImgUrl('thomas.jpg')),
                     new teamMember('Ben Whatcott', getImgUrl('ben.jpg')), new teamMember('Chris Whatcott',
                         getImgUrl('chris_profile.jpg'))
                 ],
@@ -216,8 +220,20 @@
                     new inspirationPerson("Mysnaileatspizza",
                         'https://yt3.ggpht.com/a/AATXAJwblGlWnpKDLgYlsa_azU6KiBovdMRzYbHAj1IX=s176-c-k-c0x00ffffff-no-rj-mo',
                         'https://www.youtube.com/playlist?list=PL936EACCB51B0704A')
-                ]
+                ],
+                armenian: false
             }
-        }
+        },
+        created: function () {
+            this.getArmenian();
+        },
+        methods: {
+            getArmenian: async function () {
+                let responce = await axios.get('http://192.168.1.27:3000/armenian');
+                console.log(responce);
+                this.armenian = responce.data;
+            }
+        },
+        
     }
 </script>
