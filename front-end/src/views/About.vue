@@ -14,7 +14,8 @@
             I am currently a Math Major at BYU with an emphasis in Applied Mathematics (see <a
                 href="https://acme.byu.edu">this website</a> for details). I enjoy running, swimmming, and most any
             other sport. I also enjoy building things and being creative, which is one of the reasons I've built
-            Skunckcore. <span v-show="this.armenian">I am bilingual and speak both English and Armenian fluently.</span> I am a proud member of The Church
+            Skunckcore. <span v-show="this.armenian">I am bilingual and speak both English and Armenian fluently.</span>
+            I am a proud member of The Church
             of Jesus Christ of Latter-day Saints (AKA Mormons, but we don’t like that name, find out why at <a
                 href="https://www.comeuntochrist.org/beliefs/book-of-mormon/what-is-the-book-of-mormon">comeuntochrist.org</a>
             )
@@ -193,11 +194,12 @@
         this.image = image;
     }
 
+    /* This is the template used in the inspiration Array
     function inspirationPerson(name, image, link = '#') {
         this.name = name;
         this.image = image;
         this.link = link;
-    }
+    }*/
     import axios from 'axios';
     export default {
         name: 'About',
@@ -208,32 +210,39 @@
                     new teamMember('Ben Whatcott', getImgUrl('ben.jpg')), new teamMember('Chris Whatcott',
                         getImgUrl('chris_profile.jpg'))
                 ],
-                inspiration: [new inspirationPerson("Mark Rober",
-                        'https://yt3.ggpht.com/a/AATXAJzvkraPRAIFqK9z8eod2AGevxsiQ0KcfkhqY_o=s176-c-k-c0x00ffffff-no-rj-mo',
-                        "https://www.youtube.com/user/onemeeeliondollars"), new inspirationPerson(
-                        "The King of Random",
-                        'https://yt3.ggpht.com/a/AATXAJzf_KQ1EY07m9GISG4iCIokNPD2IKL7p8N1LEspjg=s176-c-k-c0x00ffffff-no-rj-mo',
-                        "https://www.youtube.com/user/01032010814"),
-                    new inspirationPerson('JK Brickworks',
-                        'https://yt3.ggpht.com/a/AATXAJx7urhc89Fm6AbGVhVPYgW9SkiwA3SvRIvnfviI=s176-c-k-c0x00ffffff-no-rj-mo',
-                        'https://www.youtube.com/user/truedimensions'),
-                    new inspirationPerson("Mysnaileatspizza",
-                        'https://yt3.ggpht.com/a/AATXAJwblGlWnpKDLgYlsa_azU6KiBovdMRzYbHAj1IX=s176-c-k-c0x00ffffff-no-rj-mo',
-                        'https://www.youtube.com/playlist?list=PL936EACCB51B0704A')
-                ],
+                inspiration: [],
                 armenian: false
             }
         },
         created: function () {
-            this.getArmenian();
+            //this.getArmenian();
+            this.getInspiration();
+            //this.postInspirationManual();
         },
         methods: {
-            getArmenian: async function () {
+            /*getArmenian: async function () {
                 let responce = await axios.get('http://192.168.1.27:3000/armenian');
                 console.log(responce);
                 this.armenian = responce.data;
+            },*/
+            getInspiration: async function () {
+                let responce = await axios.get('/inspiration');
+                console.log(responce.data);
+                this.inspiration = responce.data;
+            },
+            postInspirationManual: async function () {
+                /*Don't want to accidentally turn this on...
+                try {
+                    axios.post('/inspiration', {
+                        name: "Mysnaileatspizza",
+                        image: 'https://yt3.ggpht.com/a/AATXAJwblGlWnpKDLgYlsa_azU6KiBovdMRzYbHAj1IX=s176-c-k-c0x00ffffff-no-rj-mo',
+                        link: 'https://www.youtube.com/playlist?list=PL936EACCB51B0704A'
+                    })
+                } catch (error) {
+                    console.log(error);
+                }*/
             }
         },
-        
+
     }
 </script>

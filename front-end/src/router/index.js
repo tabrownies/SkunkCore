@@ -3,7 +3,7 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import About from '../views/About.vue'
 import Playground from '../views/Playground.vue'
-
+import Admin from '../views/Admin.vue'
 Vue.use(VueRouter)
 
 const routes = [
@@ -21,6 +21,11 @@ const routes = [
     path: '/playground',
     name: 'Playground',
     component: Playground
+  },
+  {
+    path: '/admin',
+    name: 'Admin',
+    component: Admin
   },
 ]
 

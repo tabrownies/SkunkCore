@@ -35,9 +35,19 @@
     </header>
 
     <router-view />
+    <footer>
+      <router-link to="/admin" class="footer-link">
+        Admin
+      </router-link>
+      <a href="#" class="footer-link">
+        Github Repository
+      </a>
+      <router-link to="ta" class="footer-link">
+        For the TAs
+      </router-link>
+    </footer>
   </div>
 </template>
-
 <style>
   * {
     box-sizing: border-box;
@@ -78,6 +88,7 @@
     --accent: rgb(40, 40, 40);
     --accent2: rgb(217, 217, 217);
     --nav-link: #0000cc;
+    --nav-link-hover: rgb(18, 0, 179);
     --nav-link-active: green;
     --link: #1a1aff;
     --link-hover: rgb(18, 0, 179);
@@ -136,9 +147,27 @@
     text-decoration: underline;
   }
   .nav-link:hover {
-    color: var(--link-hover) !important;
+    color: var(--nav-link-hover) !important;
   }
-
+  footer{
+    width:100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    background-color: var(--accent);
+  }
+  .footer-link{
+    font-size:35px;
+    padding:15px 10px;
+    text-align: center;
+    color: var(--nav-link);
+    text-decoration: none;
+  }
+  .footer-link:hover{
+    color:var(--nav-link-hover);
+    text-decoration: underline;
+  }
 
   @media only screen and (min-width: 992px) {
     .collapse {
