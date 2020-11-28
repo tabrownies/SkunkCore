@@ -48,6 +48,42 @@
     </footer>
   </div>
 </template>
+<script>
+  import axios from 'axios'
+  export default {
+    created:function(){
+      this.stylePage();
+    },
+    methods: {
+      stylePage: async function() {
+        let style = document.getElementsByTagName('*')[0].style;
+        try {
+          let responce = await axios.get('/color-scheme');
+          let data = responce.data;
+          console.log(data);
+          await style.setProperty('--logo', data.logo);
+          await style.setProperty('--logo-hover', data.logoHover);
+          await style.setProperty('--base', data.base);
+          await style.setProperty('--accent', data.accent);
+          await style.setProperty('--accent2', data.accent2);
+          await style.setProperty('--nav-link', data.navLink);
+          await style.setProperty('--nav-link-hover', data.navLinkHover);
+          await style.setProperty('--nav-link-active', data.navLinkActive);
+          await style.setProperty('--link', data.navLink);
+          await style.setProperty('--link-hover', data.linkHover);
+          await style.setProperty('--link-click', data.linkClick);
+          await style.setProperty('--header', data.header);
+          await style.setProperty('--header2', data.header2);
+          await style.setProperty('--text', data.text);
+          await style.setProperty('--text2', data.text2);
+          
+        } catch (error) {
+          console.log(error);
+        }
+      }
+    }
+  }
+</script>
 <style>
   * {
     box-sizing: border-box;
@@ -82,21 +118,8 @@
     --accent: var(--dark-blue-accent);
     --link: var(--dark-blue-link)
     */
-    --logo: #e6e6e6;
-    --logo-hover:  #b3b3b3d3;
-    --base: rgb(50, 50, 50);
-    --accent: rgb(40, 40, 40);
-    --accent2: rgb(217, 217, 217);
-    --nav-link: #0000cc;
-    --nav-link-hover: rgb(18, 0, 179);
-    --nav-link-active: green;
-    --link: #1a1aff;
-    --link-hover: rgb(18, 0, 179);
-    --link-click: var();
-    --header: #0000ff;
-    --header2: #0000ee;
-    --text: #e6e6e6;
-    --text2: #b3b3b3;
+
+    
   }
 
   body {
@@ -131,41 +154,47 @@
     font-size: 100px;
     text-align: center;
   }
-  #logo:hover{
-    color:var(--logo-hover);
+
+  #logo:hover {
+    color: var(--logo-hover);
     text-decoration: none;
   }
 
   .nav-item {
     font-size: 40px !important;
   }
-  
+
   .nav-link {
     color: var(--nav-link) !important;
   }
-  .active{
+
+  .active {
     text-decoration: underline;
   }
+
   .nav-link:hover {
     color: var(--nav-link-hover) !important;
   }
-  footer{
-    width:100%;
+
+  footer {
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
     background-color: var(--accent);
   }
-  .footer-link{
-    font-size:35px;
-    padding:15px 10px;
+
+  .footer-link {
+    font-size: 35px;
+    padding: 15px 10px;
     text-align: center;
     color: var(--nav-link);
     text-decoration: none;
   }
-  .footer-link:hover{
-    color:var(--nav-link-hover);
+
+  .footer-link:hover {
+    color: var(--nav-link-hover);
     text-decoration: underline;
   }
 
