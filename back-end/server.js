@@ -60,10 +60,22 @@ const colorSchemeSchema = new mongoose.Schema({
 const ColorScheme = mongoose.model("ColorScheme", colorSchemeSchema);
 app.get('/color-scheme', async (req, res) => {
     try {
-        let schemes = await ColorScheme.find();
-        console.log(schemes);
+        let scheme = await ColorScheme.findById('5fc2d7abaad9971a1d56a156');
+        console.log(scheme);
+        res.send(scheme);
     } catch (error) {
         console.log(error);
+        res.sendStatus(500);
+    }
+});
+app.get('/color-schemes', async (req, res) => {
+    try {
+        let schemes = await ColorScheme.find();
+        console.log(schemes);
+        res.send(schemes);
+    } catch (error) {
+        console.log(error);
+        res.sendStatus(500);
     }
 });
 app.post('/color-scheme', async (req, res) => {
@@ -86,6 +98,7 @@ app.post('/color-scheme', async (req, res) => {
             text2: req.body.text2
         })
         console.log(colorScheme);
+        colorScheme.save();
     }catch(error){
         console.log(error);
     }

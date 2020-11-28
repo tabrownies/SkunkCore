@@ -1,130 +1,64 @@
 <template>
     <div class="wrapper">
-        <h1>
-            Edit Website
-        </h1>
-        <div class="options">
-            <div class="admin-option">
-                <h2>
-                    Administration
-                </h2>
-                <ul>
-                    <li>
-                        Add a Color Scheme
-                    </li>
-                    <li>
-                        Edit a Color Scheme
-                    </li>
-                    <li>
-                        Delete a Color Scheme
-                    </li>
-                    <li>
-                        Add a Team Member
-                    </li>
-                    <li>
-                        Edit a Team Member
-                    </li>
-                    <li>
-                        Delete a Team Member
-                    </li>
-                </ul>
-            </div>
-            <div class="admin-option">
-                <h2>
-                    Projects
-                </h2>
-                <ul>
-                    <li>
-                        Add a Project
-                    </li>
-                    <li>
-                        Edit a Project
-                    </li>
-                    <li>
-                        Delete a Project
-                    </li>
-                </ul>
-            </div>
-            <div class="admin-option">
-                <h2>
-                    About Page
-                </h2>
-                <ul>
-                    <li>
-                        Add an Inspirational Person
-                    </li>
-                    <li>
-                        Edit an Inspirational Person
-                    </li>
-                    <li>
-                        Delete an Inspirational Person
-                    </li>
-                </ul>
-            </div>
-            <div class="admin-option">
-                <h2>
-                    Playground
-                </h2>
-                <ul>
-                    <li>
-                        Add an Playground Project
-                    </li>
-                    <li>
-                        Edit a Playground Project
-                    </li>
-                    <li>
-                        Migrate Playground Project to a Full Project
-                    </li>
-                    <li>
-                        Delete an Playground Project
-                    </li>
-                </ul>
-            </div>
-        </div>
-
+        <form>
+            <input type="text" v-model="newColorScheme.logo" placeholder="Logo">
+            <input type="text" v-model="newColorScheme.logoHover" placeholder="Logo Hover">
+            <input type="text" v-model="newColorScheme.base" placeholder="Base">
+            <input type="text" v-model="newColorScheme.accent" placeholder="Accent">
+            <input type="text" v-model="newColorScheme.accent2" placeholder="Accent 2">
+            <input type="text" v-model="newColorScheme.navLink" placeholder="Nav Link">
+            <input type="text" v-model="newColorScheme.navLinkHover" placeholder="Nav Link Hover">
+            <input type="text" v-model="newColorScheme.navLinkActive" placeholder="NavLinkActive">
+            <input type="text" v-model="newColorScheme.link" placeholder="Link">
+            <input type="text" v-model="newColorScheme.linkHover" placeholder="Link Hover">
+            <input type="text" v-model="newColorScheme.linkClick" placeholder="Link Click">
+            <input type="text" v-model="newColorScheme.header" placeholder="Header">
+            <input type="text" v-model="newColorScheme.header2" placeholder="Header 2">
+            <input type="text" v-model="newColorScheme.text" placeholder="Text">
+            <input type="text" v-model="newColorScheme.text2" placeholder="Text 2">
+            <button @click.prevent="uploadNewColorScheme">Upload</button>
+        </form>
     </div>
 </template>
 <script>
+    import axios from 'axios';
     export default {
-        name: "Admin"
+        name: "Admin",
+        data: function () {
+            return {
+                newColorScheme: {
+                    logo: '',
+                    logoHover: '',
+                    base: '',
+                    accent: '',
+                    accent2: '',
+                    navLink: '',
+                    navLinkHover: '',
+                    navLinkActive: '',
+                    link: '',
+                    linkHover: '',
+                    linkClick: '',
+                    header: '',
+                    header2: '',
+                    text: '',
+                    text2: ''
+                }
+            }
+        },
+        methods: {
+            resetNewColorScheme: function () {
+                this.newColorScheme.logo = this.newColorScheme.logoHover = this.newColorScheme.base = this.newColorScheme.accent =
+                    this.newColorScheme.accent2 = this.newColorScheme.navLink = this.newColorScheme.navLinkHover = this.newColorScheme
+                    .navLinkActive = this.newColorScheme.link = this.newColorScheme.linkHover = this.newColorScheme.linkClick =
+                    this.newColorScheme.header = this.newColorScheme.header2 = this.newColorScheme.text = this.newColorScheme.text2 = '';
+            },
+            uploadNewColorScheme: async function(){
+                await axios.post('/color-scheme', this.newColorScheme);
+                //this.resetNewColorScheme();
+            }
+        }
     }
 </script>
 <style scoped>
-    .wrapper {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    h1{
-        color:var(--text);
-        font-size:40px;
-        padding:25px;
-        padding-bottom:10px;
-    }
-    .options {
-        display: flex;
-        justify-content: space-around;
-        width:100%;
-    }
-    .admin-option{
-        width:300px;
-        margin:10px;
-        background-color: var(--accent);
-    }
-    .admin-option h2{
-        width:100%;
-        padding:10px;
-        font-size:25px;
-        text-align: center;
-        color:var(--text);
-    }
-    .admin-option ul{
-        list-style: none;
-    }
-    .admin-option li{
-        padding:5px 10px;
-        font-size:20px;
-        color:var(--text2);
-        text-align: center;
-    }
+
 </style>
