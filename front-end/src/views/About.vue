@@ -215,16 +215,16 @@
             }
         },
         created: function () {
-            //this.getArmenian();
+            this.getArmenian();
             this.getInspiration();
             //this.postInspirationManual();
         },
         methods: {
-            /*getArmenian: async function () {
+            getArmenian: async function () {
                 let responce = await axios.get('http://192.168.1.27:3000/armenian');
                 console.log(responce);
                 this.armenian = responce.data;
-            },*/
+            },
             getInspiration: async function () {
                 let responce = await axios.get('/inspiration');
                 console.log(responce.data);
