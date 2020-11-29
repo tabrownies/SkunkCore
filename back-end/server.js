@@ -40,7 +40,9 @@ let inspiration = [new inspirationPerson("Mark Rober",
         'https://yt3.ggpht.com/a/AATXAJwblGlWnpKDLgYlsa_azU6KiBovdMRzYbHAj1IX=s176-c-k-c0x00ffffff-no-rj-mo',
         'https://www.youtube.com/playlist?list=PL936EACCB51B0704A')
 ];*/
+var currentSchemeId = '5fc2d7abaad9971a1d56a156';
 const colorSchemeSchema = new mongoose.Schema({
+    name: String,
     logo: String,
     logoHover: String,
     base: String,
@@ -60,8 +62,8 @@ const colorSchemeSchema = new mongoose.Schema({
 const ColorScheme = mongoose.model("ColorScheme", colorSchemeSchema);
 app.get('/color-scheme', async (req, res) => {
     try {
-        let scheme = await ColorScheme.findById('5fc2d7abaad9971a1d56a156');
-        console.log(scheme);
+        let scheme = await ColorScheme.findById(currentSchemeId);
+        console.log(scheme._id);
         res.send(scheme);
     } catch (error) {
         console.log(error);
@@ -81,6 +83,7 @@ app.get('/color-schemes', async (req, res) => {
 app.post('/color-scheme', async (req, res) => {
     try {
         let colorScheme = new ColorScheme({
+            name: req.body.name,
             logo: req.body.logo,
             logoHover: req.body.logoHover,
             base: req.body.base,
@@ -103,7 +106,20 @@ app.post('/color-scheme', async (req, res) => {
         console.log(error);
     }
 })
-
+app.delete('/delete-color-scheme/:id', async(req,res)=>{
+    console.log(req.params.id);
+    try{
+        await ColorScheme.deleteOne({_id:req.params.id});
+        res.sendStatus(200);
+    }catch(error){
+        console.log(error);
+    }
+    
+});
+app.post('/set-scheme/:id', async(req,res)=>{
+    currentSchemeId = req.params.id;
+    console.log(currentSchemeId);
+});
 //inpiration commands
 app.get('/inspiration', async (req, res) => {
     try {

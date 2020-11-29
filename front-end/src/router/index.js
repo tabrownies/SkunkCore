@@ -4,6 +4,7 @@ import Home from '../views/Home.vue'
 import About from '../views/About.vue'
 import Playground from '../views/Playground.vue'
 import Admin from '../views/Admin.vue'
+import ColorSchemeEditor from '../views/ColorSchemeEditor.vue'
 Vue.use(VueRouter)
 
 const routes = [
@@ -26,6 +27,11 @@ const routes = [
     path: '/admin',
     name: 'Admin',
     component: Admin
+  },
+  {
+    path: '/color-scheme-editor',
+    name: 'ColorSchemeEditor',
+    component: ColorSchemeEditor
   },
 ]
 
