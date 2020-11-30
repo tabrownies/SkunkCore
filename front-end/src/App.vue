@@ -39,7 +39,7 @@
       <router-link to="/admin" class="footer-link">
         Admin
       </router-link>
-      <a href="#" class="footer-link">
+      <a href="https://github.com/tabrownies/SkunkCore" class="footer-link">
         Github Repository
       </a>
       <router-link to="ta" class="footer-link">
