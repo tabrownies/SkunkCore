@@ -41,7 +41,7 @@
                         <button class="scheme-option" @click="applyScheme(scheme)">
                             Apply
                         </button>
-                        <router-link tag="a" class="scheme-option" :to="'/edit-color-scheme/' + scheme._id">
+                        <router-link tag="button" class="scheme-option" :to="'/edit-color-scheme/' + scheme._id">
                             Edit
                         </router-link>
                     </div>
