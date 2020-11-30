@@ -4,7 +4,7 @@
             A Message to the TAs
         </h1>
         <p>
-            On this website there are a number of connected parts, I thought it would intrige you to know about them.
+            On this website there are a number of connected parts, I thought it would intrigue you to know about them.
         </p>
         <p>
             On the Digital Ocean server runs the front-end vue code, as well as one of the back-end codes. In that first
