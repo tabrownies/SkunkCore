@@ -112,6 +112,7 @@ app.post('/color-scheme', async (req, res) => {
         })
         console.log(colorScheme);
         colorScheme.save();
+        res.send(colorScheme);
     } catch (error) {
         console.log(error);
     }
@@ -161,6 +162,7 @@ app.delete('/delete-color-scheme/:id', async (req, res) => {
 app.post('/set-scheme/:id', async (req, res) => {
     currentSchemeId = req.params.id;
     console.log(currentSchemeId);
+    res.sendStatus(200);
 });
 //inpiration commands
 app.get('/inspiration', async (req, res) => {
@@ -180,8 +182,8 @@ app.post('/inspiration', async (req, res) => {
     });
     try {
         await inspiration.save();
-        res.send(inspiration);
         console.log(inspiration);
+        res.send(inspiration);
     } catch (error) {
         console.log(error);
         res.sendStatus(500);
@@ -203,6 +205,7 @@ app.put('/inspiration/:id', async (req,res)=>{
 app.delete('/inspiration/:id', async (req,res)=>{
     try{
         await Inspiration.deleteOne({_id:req.params.id});
+        res.send(200);
     }catch(error){
         console.log(error);
     }
