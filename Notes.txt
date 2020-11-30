@@ -20,3 +20,27 @@ link click
 Add a gratitude section (make it databased based) #givethanks
 for the projects section have multiple types of projects that can be stored. One picture projects, tutorials, blog based
     This will also allow you to change how you store them in the future without changing the past
+
+11/30/2020
+Types of project entrys (have type and version) (these are held in the object which also holds their properties)
+    tutorials
+    Project Showcase
+    blog
+Things all projects will have
+    Title (maybe has max length, definitly has recommended Length)
+    Summary (has max length, likely to be shown as an option to click on the project)
+    tags
+
+
+Things to Add  
+    Project page 
+    Color editor name value pair component
+    A way to have different versions of the color schemes
+        This will be figured out on the front end, at the back I just need to add a type indicator
+Projects to put in in first wave
+    I forgot aremenian button and color changing dial
+    RC Cars
+    gratitude Journal
+
+
+I suppose the main difference between the project page and thehome page is that you can sort on the project page and that the main page has other things mixed in
