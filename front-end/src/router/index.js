@@ -5,6 +5,8 @@ import About from '../views/About.vue'
 import Playground from '../views/Playground.vue'
 import Admin from '../views/Admin.vue'
 import ColorSchemeEditor from '../views/ColorSchemeEditor.vue'
+import EditColorScheme from '../views/EditColorScheme.vue'
+import InspirationalPeopleEditor from '../views/InspirationalPeopleEditor.vue'
 Vue.use(VueRouter)
 
 const routes = [
@@ -32,6 +34,16 @@ const routes = [
     path: '/color-scheme-editor',
     name: 'ColorSchemeEditor',
     component: ColorSchemeEditor
+  },
+  {
+    path: '/edit-color-scheme/:id',
+    name: 'EditColorScheme',
+    component: EditColorScheme,
+  },
+  {
+    path: '/inspirational-people-editor',
+    name: 'InspirationalPeopleEditor',
+    component: InspirationalPeopleEditor,
   },
 ]
 

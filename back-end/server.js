@@ -70,6 +70,16 @@ app.get('/color-scheme', async (req, res) => {
         res.sendStatus(500);
     }
 });
+app.get('/color-scheme/:id', async (req, res) => {
+    try {
+        let scheme = await ColorScheme.findById(req.params.id);
+        console.log(scheme._id);
+        res.send(scheme);
+    } catch (error) {
+        console.log(error);
+        res.sendStatus(500);
+    }
+});
 app.get('/color-schemes', async (req, res) => {
     try {
         let schemes = await ColorScheme.find();
@@ -102,21 +112,53 @@ app.post('/color-scheme', async (req, res) => {
         })
         console.log(colorScheme);
         colorScheme.save();
-    }catch(error){
+    } catch (error) {
         console.log(error);
     }
-})
-app.delete('/delete-color-scheme/:id', async(req,res)=>{
-    console.log(req.params.id);
-    try{
-        await ColorScheme.deleteOne({_id:req.params.id});
-        res.sendStatus(200);
-    }catch(error){
-        console.log(error);
-    }
-    
 });
-app.post('/set-scheme/:id', async(req,res)=>{
+app.put('/color-scheme/:id', async (req, res) => {
+    try {
+        let colorScheme = await ColorScheme.findOne({
+            _id: req.params.id
+        }, async (error, item) => {
+            item.name = req.body.name;
+            item.logo = req.body.logo;
+            item.logoHover = req.body.logoHover;
+            item.base = req.body.base;
+            item.accent = req.body.accent;
+            item.accent2 = req.body.accent2;
+            item.navLink = req.body.navLink;
+            item.navLinkHover = req.body.navLinkHover;
+            item.navLinkActive = req.body.navLinkActive;
+            item.link = req.body.link;
+            item.linkHover = req.body.linkHover;
+            item.linkClick = req.body.linkClick;
+            item.header = req.body.header;
+            item.header2 = req.body.header2;
+            item.text = req.body.text;
+            item.text2 = req.body.text2;
+            await item.save();
+            res.send(item);
+        });
+        console.log(colorScheme);
+        colorScheme.save();
+    } catch (error) {
+        console.log(error);
+    }
+});
+app.delete('/delete-color-scheme/:id', async (req, res) => {
+    console.log(req.params.id);
+    try {
+        await ColorScheme.deleteOne({
+            _id: req.params.id
+        });
+        res.sendStatus(200);
+    } catch (error) {
+        console.log(error);
+    }
+
+});
+app.post('/set-scheme/:id', async (req, res) => {
     currentSchemeId = req.params.id;
     console.log(currentSchemeId);
 });
@@ -145,5 +187,24 @@ app.post('/inspiration', async (req, res) => {
         res.sendStatus(500);
     }
 });
-
+app.put('/inspiration/:id', async (req,res)=>{
+    try{
+        let person = await Inspiration.findOne({_id:req.params.id}, async (error, person) =>{
+            person.name = req.body.name;
+            person.image = req.body.image;
+            person.link = req.body.link;
+            await person.save();
+            res.send(person);
+        })
+    }catch(error){
+        console.log(error);
+    }
+});
+app.delete('/inspiration/:id', async (req,res)=>{
+    try{
+        await Inspiration.deleteOne({_id:req.params.id});
+    }catch(error){
+        console.log(error);
+    }
+});
 app.listen(3000, () => console.log("Listening on Port 3000!"));
