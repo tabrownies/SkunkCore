@@ -12,9 +12,9 @@
         </h3>
         <p>
             I am currently a Math Major at BYU with an emphasis in Applied Mathematics (see <a
-                href="https://acme.byu.edu">this website</a> for details). I enjoy running, swimmming, and most any
+                href="https://acme.byu.edu">this website</a> for details). I enjoy running, swimming, and most any
             other sport. I also enjoy building things and being creative, which is one of the reasons I've built
-            Skunckcore. <span v-show="this.armenian">I am bilingual and speak both English and Armenian fluently.</span>
+            Skunkcore. <span v-show="this.armenian">I am bilingual and speak both English and Armenian fluently.</span>
             I am a proud member of The Church
             of Jesus Christ of Latter-day Saints (AKA Mormons, but we don’t like that name, find out why at <a
                 href="https://www.comeuntochrist.org/beliefs/book-of-mormon/what-is-the-book-of-mormon">comeuntochrist.org</a>
@@ -28,8 +28,8 @@
             Skunkcore is my small corner of the world-wide-web for testing little programs I create and showing off some
             of my projects. I hope to eventually produce inventions and market them here (hence the shop section of the
             website). One of my major goals in life is to invent and sell them, Skunkcore is one big step in that
-            direction. The website is called Skunkcore because the name came to me one day, it sounded cool and
-            origional, and was open on the internet.
+            direction. The website is called Skunkcore because the name came to me one day, it sounded cool,
+            original, and was open on the internet.
         </p>
         <hr />
         <h3>
