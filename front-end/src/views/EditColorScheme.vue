@@ -107,9 +107,13 @@
         },
         methods: {
             getScheme: async function () {
-                let responce = await axios.get(`/color-scheme/${this.id}`);
-                console.log(this.scheme.data);
-                this.scheme = responce.data;
+                try {
+                    let responce = await axios.get(`/color-scheme/${this.id}`);
+                    console.log(this.scheme.data);
+                    this.scheme = responce.data;
+                } catch (error) {
+                    console.log(error);
+                }
             },
             updateScheme: async function () {
                 try {
@@ -123,48 +127,54 @@
     }
 </script>
 <style scoped>
-    .wrapper{
-        display:flex;
+    .wrapper {
+        display: flex;
         flex-direction: column;
         align-items: center;
     }
-    h1{
-        height:60px;
-        color:var(--header);
-        margin:20px 0 10px 0;
+
+    h1 {
+        height: 60px;
+        color: var(--header);
+        margin: 20px 0 10px 0;
     }
-    form{
-        display:flex;
+
+    form {
+        display: flex;
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: space-around;
         background-color: var(--accent);
-        margin:0 20px;
+        margin: 0 20px;
     }
+
     .name-value-pair {
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
         align-items: center;
         justify-content: space-between;
-        width:400px;
-        padding:5px;
+        width: 400px;
+        padding: 5px;
     }
-    h3{
-        margin:5px;
-        color:var(--text2);
+
+    h3 {
+        margin: 5px;
+        color: var(--text2);
     }
-    input{
-        margin:5px;
+
+    input {
+        margin: 5px;
     }
-    button{
-        color:var(--text1);
+
+    button {
+        color: var(--text1);
         background-color: var(--accent2);
-        padding:5px 8px;
-        border:1px solid var(--accent);
-        margin:10px;
-        font-size:25px;
-        font-family:inherit;
+        padding: 5px 8px;
+        border: 1px solid var(--accent);
+        margin: 10px;
+        font-size: 25px;
+        font-family: inherit;
         text-align: center;
         border-radius: 2.5px;
     }

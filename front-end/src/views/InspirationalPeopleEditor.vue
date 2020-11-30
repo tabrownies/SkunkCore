@@ -53,15 +53,20 @@
         },
         methods: {
             getInspiration: async function () {
-                let responce = await axios.get('/inspiration');
-                console.log(responce.data);
-                this.inspiration = responce.data;
-                this.inspiration = this.inspiration.map((item)=>{
-                    if(item.name === ''){
-                        item.name = 'Not Entered';
-                    }
-                    return item;
-                });
+                try {
+                    let responce = await axios.get('/inspiration');
+                    console.log(responce.data);
+                    this.inspiration = responce.data;
+                    this.inspiration = this.inspiration.map((item) => {
+                        if (item.name === '') {
+                            item.name = 'Not Entered';
+                        }
+                        return item;
+                    });
+                } catch (error) {
+                    console.log(error);
+                }
+
             },
             addPerson: async function () {
                 try {
@@ -75,7 +80,7 @@
                 }
                 this.getInspiration();
             },
-            updatePerson: async function() {
+            updatePerson: async function () {
                 try {
                     await axios.put(`/inspiration/${this.person.id}`, {
                         name: this.person.name,
@@ -122,7 +127,7 @@
         display: flex;
         justify-content: space-around;
         align-items: center;
-        margin:15px;
+        margin: 15px;
     }
 
     .name-value-pair {

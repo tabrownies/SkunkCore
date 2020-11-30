@@ -215,17 +215,29 @@
             }
         },
         created: function () {
-            this.getArmenian();
+            //this.getArmenian();
             this.getInspiration();
             //this.postInspirationManual();
         },
         methods: {
             getArmenian: async function () {
-                let responce = await axios.get('http://192.168.1.27:3000/armenian');
-                console.log(responce);
-                this.armenian = responce.data;
+                try {
+                    let responce = await axios.get('http://192.168.1.27:3000/armenian');
+                    console.log(responce);
+                    this.armenian = responce.data;
+                } catch (error) {
+                    console.log(error);
+                }
+
             },
             getInspiration: async function () {
+                try {
+                    let responce = await axios.get('/inspiration');
+                    console.log(responce.data);
+                    this.inspiration = responce.data;
+                } catch (error) {
+                    console.log(error);
+                }
                 let responce = await axios.get('/inspiration');
                 console.log(responce.data);
                 this.inspiration = responce.data;

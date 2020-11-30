@@ -88,12 +88,24 @@
         methods: {
             deleteScheme: async function (scheme) {
                 console.log(scheme._id);
-                await axios.delete(`/delete-color-scheme/${scheme._id}`);
+                try {
+                    let responce = await axios.delete(`/delete-color-scheme/${scheme._id}`);
+                    console.log(responce);
+                } catch (error) {
+                    console.log(error);
+                }
+
                 this.getSchemes();
             },
             applyScheme: async function (scheme) {
-                await axios.post(`/set-scheme/${scheme._id}`);
-                document.location.reload(true);
+                try {
+                    let responce = await axios.post(`/set-scheme/${scheme._id}`);
+                    document.location.reload(true);
+                    console.log(responce);
+                } catch (error) {
+                    console.log(error);
+                }
+
             },
             resetNewColorScheme: function () {
                 this.newColorScheme.name = this.newColorScheme.logo = this.newColorScheme.logoHover = this
@@ -107,10 +119,15 @@
                     .newColorScheme.text2 = '';
             },
             getSchemes: async function () {
-                let responce = await axios.get('/color-schemes');
-                //console.log(responce.data);
-                this.schemes = responce.data;
-                this.fixSchemeNames();
+                try {
+                    let responce = await axios.get('/color-schemes');
+                    console.log(responce);
+                    this.schemes = responce.data;
+                    this.fixSchemeNames();
+                } catch (error) {
+                    console.log(error);
+                }
+
             },
             fixSchemeNames: function (name = 'Unnamed Scheme') {
                 this.schemes = this.schemes.map(scheme => {
@@ -122,7 +139,12 @@
                 });
             },
             uploadNewColorScheme: async function () {
-                await axios.post('/color-scheme', this.newColorScheme);
+                try {
+                    let responce = await axios.post('/color-scheme', this.newColorScheme);
+                    console.log(responce);
+                } catch (error) {
+                    console.log(error);
+                }
                 this.getSchemes();
                 //this.resetNewColorScheme();
             }
@@ -130,81 +152,94 @@
     }
 </script>
 <style scoped>
-    .wrapper{
+    .wrapper {
         display: flex;
         flex-direction: column;
         align-items: center;
-        width:100%;
+        width: 100%;
     }
+
     h1 {
         text-align: center;
         padding: 15px;
         font-size: 60px;
         color: var(--header);
     }
+
     h2 {
         text-align: center;
         padding: 10px;
         font-size: 40px;
         color: var(--header2);
     }
-    .create-scheme{
+
+    .create-scheme {
         display: flex;
         flex-direction: column;
         align-items: center;
     }
-    form{
-        display:flex;
+
+    form {
+        display: flex;
         flex-wrap: wrap;
         justify-content: space-around;
         background-color: var(--accent);
-        padding:10px;
-        margin:10px;
+        padding: 10px;
+        margin: 10px;
     }
-    form input{
-        margin:2px;
+
+    form input {
+        margin: 2px;
     }
+
     .upload-scheme,
-    .scheme-option{
-        color:var(--text1);
+    .scheme-option {
+        color: var(--text1);
         background-color: var(--accent2);
-        padding:3px 5px;
-        border:1px solid var(--accent);
-        margin:4px;
-        font-size:15px;
-        font-family:inherit;
+        padding: 3px 5px;
+        border: 1px solid var(--accent);
+        margin: 4px;
+        font-size: 15px;
+        font-family: inherit;
         text-align: center;
         border-radius: 2.5px;
     }
+
     .upload-scheme:active,
-    .scheme-option:active{
-        
-        margin:4px;
+    .scheme-option:active {
+
+        margin: 4px;
     }
-    .upload-scheme{
-        margin:10px;
-        font-size:20px;
+
+    .upload-scheme {
+        margin: 10px;
+        font-size: 20px;
     }
-    .upload-scheme:active{
-        margin:10px;   
+
+    .upload-scheme:active {
+        margin: 10px;
     }
-    ul{
+
+    ul {
         list-style: none;
-        display:flex;
+        display: flex;
         flex-wrap: wrap;
         justify-content: space-around;
         background-color: var(--accent);
-        margin:10px 20px;
+        margin: 10px 20px;
     }
-    li{
-        display:flex;
+
+    li {
+        display: flex;
         flex-direction: column;
         align-items: center;
-        padding:10px;
+        padding: 10px;
     }
-    li h3{
-        color:var(--text2);
+
+    li h3 {
+        color: var(--text2);
     }
+
     h4 {
         text-align: center;
         padding: 0;
