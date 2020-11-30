@@ -14,3 +14,9 @@ text
 header
 header2
 link click
+
+
+11/29/2020
+Add a gratitude section (make it databased based) #givethanks
+for the projects section have multiple types of projects that can be stored. One picture projects, tutorials, blog based
+    This will also allow you to change how you store them in the future without changing the past
