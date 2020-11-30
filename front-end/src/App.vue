@@ -18,13 +18,7 @@
               <router-link class="nav-link" to="/projects">Projects</router-link>
             </li>
             <li class="nav-item">
-              <router-link class="nav-link" to="/shop">Shop</router-link>
-            </li>
-            <li class="nav-item">
               <router-link class="nav-link" to="/about">About</router-link>
-            </li>
-            <li class="nav-item">
-              <router-link class="nav-link" to="/donate">Donate</router-link>
             </li>
             <li class="nav-item">
               <router-link class="nav-link" to="/playground">Playground</router-link>
