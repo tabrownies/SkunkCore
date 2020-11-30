@@ -47,6 +47,9 @@
                     </div>
                 </li>
             </ul>
+            <h4>
+                Refresh the Page to See Changes
+            </h4>
         </div>
 
 
@@ -202,5 +205,10 @@
     li h3{
         color:var(--text2);
     }
-
+    h4 {
+        text-align: center;
+        padding: 0;
+        font-size: 20px;
+        color: var(--header2);
+    }
 </style>
