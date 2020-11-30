@@ -60,7 +60,7 @@ const colorSchemeSchema = new mongoose.Schema({
     text2: String
 })
 const ColorScheme = mongoose.model("ColorScheme", colorSchemeSchema);
-app.get('/color-scheme', async (req, res) => {
+app.get('/api/color-scheme', async (req, res) => {
     try {
         let scheme = await ColorScheme.findById(currentSchemeId);
         console.log(scheme._id);
@@ -70,7 +70,7 @@ app.get('/color-scheme', async (req, res) => {
         res.sendStatus(500);
     }
 });
-app.get('/color-scheme/:id', async (req, res) => {
+app.get('/api/color-scheme/:id', async (req, res) => {
     try {
         let scheme = await ColorScheme.findById(req.params.id);
         console.log(scheme._id);
@@ -80,7 +80,7 @@ app.get('/color-scheme/:id', async (req, res) => {
         res.sendStatus(500);
     }
 });
-app.get('/color-schemes', async (req, res) => {
+app.get('/api/color-schemes', async (req, res) => {
     try {
         let schemes = await ColorScheme.find();
         console.log(schemes);
@@ -90,7 +90,7 @@ app.get('/color-schemes', async (req, res) => {
         res.sendStatus(500);
     }
 });
-app.post('/color-scheme', async (req, res) => {
+app.post('/api/color-scheme', async (req, res) => {
     try {
         let colorScheme = new ColorScheme({
             name: req.body.name,
@@ -117,7 +117,7 @@ app.post('/color-scheme', async (req, res) => {
         console.log(error);
     }
 });
-app.put('/color-scheme/:id', async (req, res) => {
+app.put('/api/color-scheme/:id', async (req, res) => {
     try {
         let colorScheme = await ColorScheme.findOne({
             _id: req.params.id
@@ -147,7 +147,7 @@ app.put('/color-scheme/:id', async (req, res) => {
         console.log(error);
     }
 });
-app.delete('/delete-color-scheme/:id', async (req, res) => {
+app.delete('/api/delete-color-scheme/:id', async (req, res) => {
     console.log(req.params.id);
     try {
         await ColorScheme.deleteOne({
@@ -159,13 +159,13 @@ app.delete('/delete-color-scheme/:id', async (req, res) => {
     }
 
 });
-app.post('/set-scheme/:id', async (req, res) => {
+app.post('/api/set-scheme/:id', async (req, res) => {
     currentSchemeId = req.params.id;
     console.log(currentSchemeId);
     res.sendStatus(200);
 });
 //inpiration commands
-app.get('/inspiration', async (req, res) => {
+app.get('/api/inspiration', async (req, res) => {
     try {
         let inspirations = await Inspiration.find();
         console.log(inspirations);
@@ -174,7 +174,7 @@ app.get('/inspiration', async (req, res) => {
         console.log(error);
     }
 })
-app.post('/inspiration', async (req, res) => {
+app.post('/api/inspiration', async (req, res) => {
     const inspiration = new Inspiration({
         name: req.body.name,
         image: req.body.image,
@@ -189,7 +189,7 @@ app.post('/inspiration', async (req, res) => {
         res.sendStatus(500);
     }
 });
-app.put('/inspiration/:id', async (req,res)=>{
+app.put('/api/inspiration/:id', async (req,res)=>{
     try{
         let person = await Inspiration.findOne({_id:req.params.id}, async (error, person) =>{
             person.name = req.body.name;
@@ -202,7 +202,7 @@ app.put('/inspiration/:id', async (req,res)=>{
         console.log(error);
     }
 });
-app.delete('/inspiration/:id', async (req,res)=>{
+app.delete('/api/inspiration/:id', async (req,res)=>{
     try{
         await Inspiration.deleteOne({_id:req.params.id});
         res.send(200);

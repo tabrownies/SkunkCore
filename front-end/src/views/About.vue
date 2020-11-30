@@ -232,13 +232,13 @@
             },
             getInspiration: async function () {
                 try {
-                    let responce = await axios.get('/inspiration');
+                    let responce = await axios.get('/api/inspiration');
                     console.log(responce.data);
                     this.inspiration = responce.data;
                 } catch (error) {
                     console.log(error);
                 }
-                let responce = await axios.get('/inspiration');
+                let responce = await axios.get('/api/inspiration');
                 console.log(responce.data);
                 this.inspiration = responce.data;
             },

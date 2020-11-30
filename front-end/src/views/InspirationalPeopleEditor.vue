@@ -54,7 +54,7 @@
         methods: {
             getInspiration: async function () {
                 try {
-                    let responce = await axios.get('/inspiration');
+                    let responce = await axios.get('/api/inspiration');
                     console.log(responce.data);
                     this.inspiration = responce.data;
                     this.inspiration = this.inspiration.map((item) => {
@@ -70,7 +70,7 @@
             },
             addPerson: async function () {
                 try {
-                    await axios.post('/inspiration', {
+                    await axios.post('/api/inspiration', {
                         name: this.person.name,
                         image: this.person.image,
                         link: this.person.link,
@@ -82,7 +82,7 @@
             },
             updatePerson: async function () {
                 try {
-                    await axios.put(`/inspiration/${this.person.id}`, {
+                    await axios.put(`/api/inspiration/${this.person.id}`, {
                         name: this.person.name,
                         image: this.person.image,
                         link: this.person.link,
@@ -94,7 +94,7 @@
             },
             deletePerson: async function () {
                 try {
-                    await axios.delete(`/inspiration/${this.person.id}`);
+                    await axios.delete(`/api/inspiration/${this.person.id}`);
                 } catch (error) {
                     console.log(error);
                 }

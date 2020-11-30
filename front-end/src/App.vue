@@ -58,7 +58,7 @@
       stylePage: async function() {
         let style = document.getElementsByTagName('*')[0].style;
         try {
-          let responce = await axios.get('/color-scheme');
+          let responce = await axios.get('/api/color-scheme');
           let data = responce.data;
           console.log(data);
           await style.setProperty('--logo', data.logo);
