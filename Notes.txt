@@ -3,6 +3,11 @@ A color switcher based on an Arduino or a mock input for the TAs
 
 projects
 Change of Base Calculator
+Workbench screen
+Mariokart
+Lego Electronics (headhunter)
+TI-84 wireless charging
+
 
 
 Color style parts
@@ -40,7 +45,7 @@ Things to Add
 Projects to put in in first wave
     I forgot aremenian button and color changing dial
     RC Cars
-    gratitude Journal
+    gratitude Journal (use a c++ program for this, or SMS)
 
 
 I suppose the main difference between the project page and thehome page is that you can sort on the project page and that the main page has other things mixed in
