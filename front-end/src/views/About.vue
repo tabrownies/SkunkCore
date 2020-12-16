@@ -68,7 +68,7 @@
             How is it built
         </h3>
         <p>
-            Skunkcore is built using a variety of technology. The front-end (the website you are seeing right now), is
+            Skunkcore is built using a variety of technologies. The front-end (the website you are seeing right now), is
             built using HTML, CSS, and JavaScript in a VUE framework, whereas the backend is using Node.js, Express and
             a Mongo database. There are, of course, other fun technologies integrated in, but to see those, go look
             through some of <router-link class="internal-link" to="/projects">the projects.</router-link>
