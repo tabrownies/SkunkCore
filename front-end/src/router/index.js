@@ -7,7 +7,7 @@ import Admin from '../views/Admin.vue'
 import ColorSchemeEditor from '../views/ColorSchemeEditor.vue'
 import EditColorScheme from '../views/EditColorScheme.vue'
 import InspirationalPeopleEditor from '../views/InspirationalPeopleEditor.vue'
-import Ta from '../views/Ta.vue'
+
 Vue.use(VueRouter)
 
 const routes = [
@@ -45,11 +45,6 @@ const routes = [
     path: '/inspirational-people-editor',
     name: 'InspirationalPeopleEditor',
     component: InspirationalPeopleEditor,
-  },
-  {
-    path: '/ta',
-    name: 'Ta',
-    component: Ta,
   },
 ]
 

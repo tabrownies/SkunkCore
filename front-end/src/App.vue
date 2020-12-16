@@ -21,6 +21,12 @@
               <router-link class="nav-link" to="/about">About</router-link>
             </li>
             <li class="nav-item">
+              <router-link class="nav-link" to="/resources">Resources</router-link>
+            </li>
+            <li class="nav-item">
+              <router-link class="nav-link" to="/shop">Shop</router-link>
+            </li>
+            <li class="nav-item">
               <router-link class="nav-link" to="/playground">Playground</router-link>
             </li>
           </ul>
@@ -31,13 +37,10 @@
     <router-view />
     <footer>
       <router-link to="/admin" class="footer-link">
-        Admin
+        Admin Portal
       </router-link>
-      <a href="https://github.com/tabrownies/SkunkCore" class="footer-link">
-        Github Repository
-      </a>
-      <router-link to="ta" class="footer-link">
-        For the TAs
+      <router-link to="#" class="footer-link">
+        Contact Us
       </router-link>
     </footer>
   </div>
@@ -45,11 +48,11 @@
 <script>
   import axios from 'axios'
   export default {
-    created:function(){
+    created: function () {
       this.stylePage();
     },
     methods: {
-      stylePage: async function() {
+      stylePage: async function () {
         let style = document.getElementsByTagName('*')[0].style;
         try {
           let responce = await axios.get('/api/color-scheme');
@@ -70,7 +73,7 @@
           await style.setProperty('--header2', data.header2);
           await style.setProperty('--text', data.text);
           await style.setProperty('--text2', data.text2);
-          
+
         } catch (error) {
           console.log(error);
         }
@@ -79,41 +82,16 @@
   }
 </script>
 <style>
+  @import '../src/assets/stylesheets/OG/style.css';
+</style>
+<style scoped>
+  @import '../src/assets/stylesheets/OG/app.css';
+</style>
+<!--<style>
   * {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
-    /*light red theme*/
-    --light-red-base: rgb(242, 242, 242);
-    --light-red-accent: rgb(217, 217, 217);
-    --light-red-link: rgb(179, 15, 15);
-    /*light green theme*/
-    --light-green-base: rgb(242, 242, 242);
-    --light-green-accent: rgb(217, 217, 217);
-    --light-green-link: rgb(15, 179, 15);
-    /*light blue theme*/
-    --light-blue-base: rgb(242, 242, 242);
-    --light-blue-accent: rgb(217, 217, 217);
-    --light-blue-link: rgb(15, 15, 179);
-    /*dark red theme*/
-    --dark-red-base: rgb(50, 50, 50);
-    --dark-red-accent: rgb(40, 40, 40);
-    --dark-red-link: rgb(51, 0, 0);
-    /*dark green theme*/
-    --dark-green-base: rgb(50, 50, 50);
-    --dark-green-accent: rgb(40, 40, 40);
-    --dark-green-link: rgb(0, 51, 0);
-    /*dark blue theme*/
-    --dark-blue-base: rgb(50, 50, 50);
-    --dark-blue-accent: rgb(40, 40, 40);
-    --dark-blue-link: rgb(5, 0, 51);
-    /*base theme
-    --base: var(--dark-blue-base);
-    --accent: var(--dark-blue-accent);
-    --link: var(--dark-blue-link)
-    */
-
-    
   }
 
   body {
@@ -145,7 +123,7 @@
 
   #logo {
     color: var(--logo);
-    font-size: 100px;
+    font-size: 80px;
     text-align: center;
   }
 
@@ -160,6 +138,7 @@
 
   .nav-link {
     color: var(--nav-link) !important;
+    font-size:30px;
   }
 
   .active {
@@ -180,7 +159,7 @@
   }
 
   .footer-link {
-    font-size: 35px;
+    font-size: 15px;
     padding: 15px 10px;
     text-align: center;
     color: var(--nav-link);
@@ -210,4 +189,4 @@
       font-size: 60px;
     }
   }
-</style>
+</style>-->

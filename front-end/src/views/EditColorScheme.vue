@@ -127,55 +127,5 @@
     }
 </script>
 <style scoped>
-    .wrapper {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    h1 {
-        height: 60px;
-        color: var(--header);
-        margin: 20px 0 10px 0;
-    }
-
-    form {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: space-around;
-        background-color: var(--accent);
-        margin: 0 20px;
-    }
-
-    .name-value-pair {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        align-items: center;
-        justify-content: space-between;
-        width: 400px;
-        padding: 5px;
-    }
-
-    h3 {
-        margin: 5px;
-        color: var(--text2);
-    }
-
-    input {
-        margin: 5px;
-    }
-
-    button {
-        color: var(--text1);
-        background-color: var(--accent2);
-        padding: 5px 8px;
-        border: 1px solid var(--accent);
-        margin: 10px;
-        font-size: 25px;
-        font-family: inherit;
-        text-align: center;
-        border-radius: 2.5px;
-    }
+    @import '../assets//stylesheets/OG/editColorScheme.css'
 </style>

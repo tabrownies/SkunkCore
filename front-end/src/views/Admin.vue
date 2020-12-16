@@ -26,27 +26,5 @@
     }
 </script>
 <style scoped>
-    .wrapper{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    h1{
-        font-size:60px;
-        padding:25px;
-        padding-bottom:0px;
-    }
-    ul{
-        display:flex;
-        flex-wrap: wrap;
-        list-style: none;
-    }
-    li{
-        padding:10px;
-        font-size:30px;
-        
-    }
-    .router-link{
-        color:var(--text);
-    }
+    @import '../assets/stylesheets/OG/admin.css';
 </style>

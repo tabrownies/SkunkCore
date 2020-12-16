@@ -25,30 +25,5 @@
     }
 </script>
 <style scoped>
-    h2{
-        text-align: center;
-        font-size:40px;
-        padding:20px;
-        color: var(--text2);
-    }
-    ul{
-        padding:0 30px;
-        display:flex;
-        flex-wrap: wrap;
-
-    }
-    li{
-        padding:10px;
-        font-size:30px;
-        list-style-type: none;
-        border-bottom:2px solid var(--accent);
-    }
-    a,
-    internal-links{
-        color:var(--link);
-    }
-    a:hover,
-    internal-links:hover{
-        color:var(--link-hover);
-    }
+    @import '../assets/stylesheets/OG/playground.css';
 </style>
