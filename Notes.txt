@@ -49,3 +49,19 @@ Projects to put in in first wave
 
 
 I suppose the main difference between the project page and thehome page is that you can sort on the project page and that the main page has other things mixed in
+
+
+12/09/2020
+Build a python scraper that takes the text of the Book of Mormon from Church of Jesus Christ.org
+    Notes too?
+    Then put it on a website in correct formatting
+        Column component in vue
+            Verse component in Column
+    scriptures.skunkcore.me
+Build an alexa or google home skill to change the color of skunkcore
+Write out the net of things that work in skunkcore on the whiteboard
+Draw up workbench designs, present to parents
+Scunkcore sticker pack
+
+12/09/2020
+Create a SAFER template equivalent for yourself
