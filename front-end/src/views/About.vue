@@ -75,8 +75,8 @@
         </p>
     </div>
 </template>
-<style scoped>
-    @import '../assets/stylesheets/OG/about.css';
+<style scoped id="style">
+    @import "../assets/stylesheets/OG/about.css";
 </style>
 <script>
     function getImgUrl(name) {
@@ -113,7 +113,9 @@
             //this.getArmenian();
             this.getInspiration();
             //this.postInspirationManual();
+            console.log(document.styleSheets)
         },
+
         methods: {
             getArmenian: async function () {
                 try {
