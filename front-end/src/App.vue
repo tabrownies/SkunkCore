@@ -1,8 +1,8 @@
 <template>
   <div id="app">
     <header>
-      <router-link class="header" to="#">
-        <div id="logo">Skunkcore</div>
+      <router-link class="header" to="/">
+        <img src="assets/logo.png">
       </router-link>
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
@@ -82,10 +82,10 @@
   }
 </script>
 <style>
-  @import '/Users/timothybrown/Documents/School/CS 260/Creative Projects/Skunkcore/back-end/stylesheets/OG/style.css';
+  @import '/api/style/style.css';
 </style>
 <style scoped>
-  @import '/Users/timothybrown/Documents/School/CS 260/Creative Projects/Skunkcore/back-end/stylesheets/OG/app.css';
+  @import '/api/style/app.css';
 </style>
 <!--<style>
   * {

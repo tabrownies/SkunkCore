@@ -214,24 +214,8 @@ app.delete('/api/inspiration/:id', async (req, res) => {
         console.log(error);
     }
 });
-
-//some testing
-const fs = require('fs')
-
-function populateFiles() {
-    fs.readFile('stylesheets/OG/about.css', 'utf8', (err, data) => {
-        if (err) {
-            console.error(err)
-            return
-        }
-        console.log(data)
-        fs.writeFile('stylesheets/main/about.css', data, (error) => {
-            if (error) console.log(error);
-        })
-    })
-}
-populateFiles();
-app.get('/api/style', (req,res)=>{
-    res.sendFile('/Users/timothybrown/Documents/School/CS 260/Creative Projects/Skunkcore/back-end/stylesheets/main/about.css');
+const styleDirectory = '/Users/timothybrown/Documents/School/CS 260/Creative Projects/Skunkcore/back-end/stylesheets/OG/';
+app.get('/api/style/:file', (req,res)=>{
+    res.sendFile(styleDirectory+req.params.file);
 })
 app.listen(5000, () => console.log("Listening on Port 5000!"));

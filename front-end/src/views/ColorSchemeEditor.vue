@@ -152,5 +152,5 @@
     }
 </script>
 <style scoped>
-    @import '/Users/timothybrown/Documents/School/CS 260/Creative Projects/Skunkcore/back-end/stylesheets/OG/colorSchemeEditor.css';
+    @import '/api/style/colorSchemeEditor.css';
 </style>

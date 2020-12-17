@@ -79,7 +79,7 @@
     </div>
 </template>
 <style scoped id="style">
-    @import 'http://localhost:5000/api/style';
+    @import '/api/style/about.css';
 </style>
 <script>
     function getImgUrl(name) {

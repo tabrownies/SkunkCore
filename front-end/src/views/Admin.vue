@@ -26,5 +26,5 @@
     }
 </script>
 <style scoped>
-    @import '/Users/timothybrown/Documents/School/CS 260/Creative Projects/Skunkcore/back-end/stylesheets/OG/admin.css';
+    @import '/api/style/admin.css';
 </style>

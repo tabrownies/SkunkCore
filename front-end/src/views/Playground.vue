@@ -25,5 +25,5 @@
     }
 </script>
 <style scoped>
-    @import '/Users/timothybrown/Documents/School/CS 260/Creative Projects/Skunkcore/back-end/stylesheets/OG/playground.css';
+    @import '/api/style/playground.css';
 </style>
