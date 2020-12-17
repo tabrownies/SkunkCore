@@ -73,10 +73,13 @@
             a Mongo database. There are, of course, other fun technologies integrated in, but to see those, go look
             through some of <router-link class="internal-link" to="/projects">the projects.</router-link>
         </p>
+        <div class="content">
+           
+        </div>
     </div>
 </template>
 <style scoped id="style">
-    @import "../assets/stylesheets/OG/about.css";
+    @import 'http://localhost:5000/api/style';
 </style>
 <script>
     function getImgUrl(name) {
@@ -113,7 +116,10 @@
             //this.getArmenian();
             this.getInspiration();
             //this.postInspirationManual();
-            console.log(document.styleSheets)
+            let styles = document.getElementsByTagName('style');
+            for (let i = 0; i < styles.length; ++i) {
+                console.log(styles[i].innerHTML);
+            }
         },
 
         methods: {

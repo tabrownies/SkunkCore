@@ -127,5 +127,5 @@
     }
 </script>
 <style scoped>
-    @import '../assets//stylesheets/OG/editColorScheme.css'
+    @import '/Users/timothybrown/Documents/School/CS 260/Creative Projects/Skunkcore/back-end//stylesheets/OG/editColorScheme.css'
 </style>

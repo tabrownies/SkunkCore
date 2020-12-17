@@ -110,5 +110,5 @@
     }
 </script>
 <style scoped>
-    @import '../assets/stylesheets/OG/inspirationalPeopleEditor.css';
+    @import '/Users/timothybrown/Documents/School/CS 260/Creative Projects/Skunkcore/back-end/stylesheets/OG/inspirationalPeopleEditor.css';
 </style>

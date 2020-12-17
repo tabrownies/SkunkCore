@@ -82,10 +82,10 @@
   }
 </script>
 <style>
-  @import '../src/assets/stylesheets/OG/style.css';
+  @import '/Users/timothybrown/Documents/School/CS 260/Creative Projects/Skunkcore/back-end/stylesheets/OG/style.css';
 </style>
 <style scoped>
-  @import '../src/assets/stylesheets/OG/app.css';
+  @import '/Users/timothybrown/Documents/School/CS 260/Creative Projects/Skunkcore/back-end/stylesheets/OG/app.css';
 </style>
 <!--<style>
   * {

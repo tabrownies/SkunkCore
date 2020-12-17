@@ -189,25 +189,49 @@ app.post('/api/inspiration', async (req, res) => {
         res.sendStatus(500);
     }
 });
-app.put('/api/inspiration/:id', async (req,res)=>{
-    try{
-        let person = await Inspiration.findOne({_id:req.params.id}, async (error, person) =>{
+app.put('/api/inspiration/:id', async (req, res) => {
+    try {
+        let person = await Inspiration.findOne({
+            _id: req.params.id
+        }, async (error, person) => {
             person.name = req.body.name;
             person.image = req.body.image;
             person.link = req.body.link;
             await person.save();
             res.send(person);
         })
-    }catch(error){
+    } catch (error) {
         console.log(error);
     }
 });
-app.delete('/api/inspiration/:id', async (req,res)=>{
-    try{
-        await Inspiration.deleteOne({_id:req.params.id});
+app.delete('/api/inspiration/:id', async (req, res) => {
+    try {
+        await Inspiration.deleteOne({
+            _id: req.params.id
+        });
         res.send(200);
-    }catch(error){
+    } catch (error) {
         console.log(error);
     }
 });
+
+//some testing
+const fs = require('fs')
+
+function populateFiles() {
+    fs.readFile('stylesheets/OG/about.css', 'utf8', (err, data) => {
+        if (err) {
+            console.error(err)
+            return
+        }
+        console.log(data)
+        fs.writeFile('stylesheets/main/about.css', data, (error) => {
+            if (error) console.log(error);
+        })
+    })
+}
+populateFiles();
+app.get('/api/style', (req,res)=>{
+    res.sendFile('/Users/timothybrown/Documents/School/CS 260/Creative Projects/Skunkcore/back-end/stylesheets/main/about.css');
+})
 app.listen(5000, () => console.log("Listening on Port 5000!"));
