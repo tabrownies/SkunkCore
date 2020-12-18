@@ -3,20 +3,29 @@
     flex-direction: column;
     align-items: center;
 }
-h1{
+.wrapper h1{
     font-size:60px;
     padding:25px;
     padding-bottom:0px;
+    padding:initial;
+    height:initial;
+    width:initial;
+    margin:initial;
 }
-ul{
+.options-nav{
+    border:none;
+    
+}
+.options-nav ul{
     display:flex;
     flex-wrap: wrap;
     list-style: none;
+    background-color:inherit;
 }
-li{
+.options-nav li{
     padding:10px;
     font-size:30px;
-    
+    border:0px;
 }
 .router-link{
     color:var(--text);
