@@ -7,7 +7,7 @@ router.use(bodyParser.json());
 router.use(bodyParser.urlencoded({
   extended: false
 }));
-const PermissionSchema = mongoose.Schema({
+/*const PermissionSchema = mongoose.Schema({
   colorshemes: {
     type: Boolean,
     default: true,
@@ -37,7 +37,7 @@ const PermissionSchema = mongoose.Schema({
     type: Boolean,
     default: false,
   }
-})
+})*/
 //const Permissions = mongoose.model('Permissions', PermissionSchema);
 const AdminSchema = mongoose.Schema({
   firstname: String,
@@ -101,13 +101,13 @@ const Admin = mongoose.model('Admin', AdminSchema);
 
 // middleware function to check for logged-in users
 /*const hasPermission = async (req, res, next) => {
-  if (!req.session.userID)
+  if (!req.session.adminID)
     return res.status(403).send({
       message: "not logged in"
     });
   try {
     const admin = await Admin.findOne({
-      _id: req.session.userID
+      _id: req.session.adminID
     });
     if (!admin) {
       return res.status(403).send({
@@ -126,6 +126,45 @@ const Admin = mongoose.model('Admin', AdminSchema);
   // if everything succeeds, move to the next middleware
   next();
 };*/
+const isAdmin = async (req, res, next) => {
+  console.log(req.session.adminID);
+  if (!req.session.adminID){
+    return res.status(403).send({
+      message: "You do not have sufficient privilages to access this"
+    });
+  }
+    
+  try {
+    const admin = await Admin.findOne({
+      _id: req.session.adminID
+    });
+    if (!admin) {
+      return res.status(403).send({
+        message: "You do not have sufficient privilages to access this"
+      });
+    }
+    // set the admin field in the request
+    req.admin = admin;
+  } catch (error) {
+    // Return an error if admin does not exist.
+    return res.status(403).send({
+      message: "You do not have sufficient privilages to access this"
+    });
+  }
+
+  // if everything succeeds, move to the next middleware
+  next();
+};
+router.get('/', isAdmin, async (req, res) =>{
+  try {
+    res.send({
+      admin: req.admin
+    });
+  } catch (error) {
+    console.log(error);
+    return res.sendStatus(500);
+  }
+})
 router.post('/login', async (req, res) => {
   if (!req.body.username || !req.body.password)
     return res.sendStatus(400);
@@ -146,8 +185,9 @@ router.post('/login', async (req, res) => {
         message: "username or password is wrong"
       });
     }
-    console.log(admin);
+    
     console.log(`${admin.firstname} ${admin.lastname} logged in! :)`);
+    req.session.adminID = admin._id;
     return res.send({
       admin: admin
     });
@@ -155,8 +195,20 @@ router.post('/login', async (req, res) => {
     console.log(error);
     return res.sendStatus(500);
   }
+});
+router.delete('/', isAdmin, async(req,res)=>{
+  console.log('logout');
+  try{
+    req.session = null;
+    res.sendStatus(200);
+  }catch(error){
+    console.log(error);
+    return res.sendStatus(500);
+  }
 })
 module.exports = {
   routes: router,
+  valid: isAdmin,
   model: Admin,
+  
 };

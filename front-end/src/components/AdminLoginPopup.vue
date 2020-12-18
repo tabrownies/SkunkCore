@@ -11,9 +11,6 @@
                 <router-link tag="button" to="/">Cancel</router-link>
                 <button type="submit">Login</button>
             </div>
-
-
-
         </form>
     </div>
 

@@ -1,6 +1,8 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const admin = require('./admin.js');
+const isAdmin = admin.valid;
 const router = express();
 router.use(bodyParser.json());
 router.use(bodyParser.urlencoded({
@@ -47,7 +49,7 @@ router.get('/color-scheme/:id', async (req, res) => {
         res.sendStatus(500);
     }
 });
-router.get('/color-schemes', async (req, res) => {
+router.get('/color-schemes', isAdmin, async (req, res) => {
     try {
         let schemes = await ColorScheme.find();
         res.send(schemes);
@@ -56,7 +58,7 @@ router.get('/color-schemes', async (req, res) => {
         res.sendStatus(500);
     }
 });
-router.post('/color-scheme', async (req, res) => {
+router.post('/color-scheme', isAdmin, async (req, res) => {
     try {
         let colorScheme = new ColorScheme({
             stylesheet: req.body.stylesheet,
@@ -83,7 +85,7 @@ router.post('/color-scheme', async (req, res) => {
         console.log(error);
     }
 });
-router.put('/color-scheme/:id', async (req, res) => {
+router.put('/color-scheme/:id', isAdmin, async (req, res) => {
     try {
         let colorScheme = await ColorScheme.findOne({
             _id: req.params.id
@@ -113,7 +115,9 @@ router.put('/color-scheme/:id', async (req, res) => {
         console.log(error);
     }
 });
-router.delete('/delete-color-scheme/:id', async (req, res) => {
+router.delete('/delete-color-scheme/:id', isAdmin, async (req, res) => {
+    console.log('This prevents actual deleting!');
+    return res.sendStatus(200);
     try {
         await ColorScheme.deleteOne({
             _id: req.params.id
@@ -121,11 +125,12 @@ router.delete('/delete-color-scheme/:id', async (req, res) => {
         res.sendStatus(200);
     } catch (error) {
         console.log(error);
+        res.sendStatus(500);
     }
 
 });
 
-router.post('/set-scheme/:id', async (req, res) => {
+router.post('/set-scheme/:id', isAdmin, async (req, res) => {
     try {
         let currentScheme = await ColorScheme.findOne({
             _id: currentSchemeId

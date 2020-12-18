@@ -5,7 +5,7 @@
     </div>
 </template>
 <script>
-    //import axios from 'axios';
+    import axios from 'axios';
     import AdminOptions from '../components/AdminOptions'
     import AdminLoginPopup from '../components/AdminLoginPopup'
     export default {
@@ -15,13 +15,13 @@
             AdminOptions
         },
         async created() {
-            /*try{
+            try{
                 let responce = await axios.get('/api/admin');
                 this.$root.$data.admin = responce.data.admin;
             }catch(error){
                 console.log(error);
                 this.$root.$data.admin = null;
-            }*/
+            }
         },
         computed: {
             admin() {

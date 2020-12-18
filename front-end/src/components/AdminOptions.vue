@@ -1,7 +1,7 @@
 <template>
     <div class="wrapper">
         <h1>
-            Admin Options
+            Welcome {{admin.firstname}} {{admin.lastname}}
         </h1>
         <nav class="options-nav">
             <ul>
@@ -35,14 +35,33 @@
                         Parts
                     </router-link>
                 </li>
+                <li>
+                    <button @click.prevent="logout">Logout</button>
+                </li>
             </ul>
         </nav>
         
     </div>
 </template>
 <script>
+    import axios from 'axios'
     export default {
         name: "AdminOptions",
+        computed: {
+            admin() {
+                return this.$root.$data.admin;
+            }
+        },
+        methods:{
+            logout: async function(){
+                try{
+                    await axios.delete('/api/admin');
+                    this.$root.$data.admin = null;
+                }catch(error){
+                    this.$root.$data.admin = null;
+                }
+            }
+        }
     }
 </script>
 <style scoped>
