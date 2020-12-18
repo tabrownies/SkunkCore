@@ -48,8 +48,15 @@
 <script>
   import axios from 'axios'
   export default {
-    created: function () {
+    created: async function () {
       this.stylePage();
+      try {
+        let responce = await axios.get('/api/admin');
+        this.$root.$data.admin = responce.data.admin;
+      } catch (error) {
+        console.log(error);
+        this.$root.$data.admin = null;
+      }
     },
     methods: {
       stylePage: async function () {
