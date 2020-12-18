@@ -44,6 +44,7 @@ nav {
 }
 .navbar-nav{
     margin:0px !important;
+    background-color: var(--base) !important;
 }
 .nav-item {
     font-size: 40px !important;

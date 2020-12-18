@@ -17,5 +17,6 @@ app.use("/api", styles.routes);
 
 const inspiration = require("./inspiration.js");
 app.use("/api",inspiration.routes)
-
+const admin = require('./admin.js');
+app.use("/api/admin", admin.routes);
 app.listen(5000, () => console.log("Listening on Port 5000!"));

@@ -1,50 +1,35 @@
 <template>
     <div class="wrapper">
-        <h1>
-            Admin Options
-        </h1>
-        <nav class="options-nav">
-            <ul>
-                <li>
-                    <router-link class="router-link" to="/color-scheme-editor">
-                        Color Schemes
-                    </router-link>
-                </li>
-                <li>
-                    <router-link  class="router-link" to="/inspirational-people-editor">
-                        Inspirational People
-                    </router-link>
-                </li>
-                <li>
-                    <router-link class="router-link" to="/color-scheme-editor">
-                        Projects
-                    </router-link>
-                </li>
-                <li>
-                    <router-link class="router-link" to="/color-scheme-editor">
-                        Shop
-                    </router-link>
-                </li>
-                <li>
-                    <router-link class="router-link" to="/color-scheme-editor">
-                        Tools
-                    </router-link>
-                </li>
-                <li>
-                    <router-link class="router-link" to="/color-scheme-editor">
-                        Parts
-                    </router-link>
-                </li>
-            </ul>
-        </nav>
-        
+        <AdminOptions v-if="admin"></AdminOptions>
+        <AdminLoginPopup v-else></AdminLoginPopup>
     </div>
 </template>
 <script>
+    //import axios from 'axios';
+    import AdminOptions from '../components/AdminOptions'
+    import AdminLoginPopup from '../components/AdminLoginPopup'
     export default {
         name: "Admin",
+        components: {
+            AdminLoginPopup,
+            AdminOptions
+        },
+        async created() {
+            /*try{
+                let responce = await axios.get('/api/admin');
+                this.$root.$data.admin = responce.data.admin;
+            }catch(error){
+                console.log(error);
+                this.$root.$data.admin = null;
+            }*/
+        },
+        computed: {
+            admin() {
+                return this.$root.$data.admin;
+            }
+        }
     }
 </script>
 <style scoped>
-    @import '/api/style/admin.css';
+
 </style>

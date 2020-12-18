@@ -1,0 +1,32 @@
+.loginPopupWrapper{
+    height:100%;
+    width:100%;
+    background-color: rgb(100,100,100,.8);
+    position:absolute;
+    top:0px;
+    left:0px;
+    margin:0px;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+.loginPopupWrapper form{
+    display:flex;
+    flex-direction: column;
+    background-color: var(--base);
+}
+.loginPopupWrapper form div{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.loginPopupWrapper input
+.loginPopupWrapper p{
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    height:25px;
+    font-size:20px;
+    margin:0px;
+    padding:5px;
+}
