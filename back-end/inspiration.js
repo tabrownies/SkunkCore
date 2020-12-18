@@ -1,6 +1,8 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const admin = require('./admin.js');
+const isAdmin = admin.valid;
 const router = express();
 router.use(bodyParser.json());
 router.use(bodyParser.urlencoded({
@@ -22,7 +24,7 @@ router.get('/inspiration', async (req, res) => {
         console.log(error);
     }
 })
-router.post('/inspiration', async (req, res) => {
+router.post('/inspiration', isAdmin, async (req, res) => {
     const inspiration = new Inspiration({
         name: req.body.name,
         image: req.body.image,
@@ -37,7 +39,7 @@ router.post('/inspiration', async (req, res) => {
         res.sendStatus(500);
     }
 });
-router.put('/inspiration/:id', async (req, res) => {
+router.put('/inspiration/:id', isAdmin, async (req, res) => {
     try {
         let person = await Inspiration.findOne({
             _id: req.params.id
@@ -52,7 +54,7 @@ router.put('/inspiration/:id', async (req, res) => {
         console.log(error);
     }
 });
-router.delete('/inspiration/:id', async (req, res) => {
+router.delete('/inspiration/:id', isAdmin, async (req, res) => {
     try {
         await Inspiration.deleteOne({
             _id: req.params.id
