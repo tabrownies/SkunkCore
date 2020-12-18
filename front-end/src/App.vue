@@ -2,7 +2,7 @@
   <div id="app">
     <header>
       <router-link class="header" to="/">
-        <img src="assets/logo.png">
+        <div id="logo">Skunkcore</div>
       </router-link>
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
@@ -20,12 +20,12 @@
             <li class="nav-item">
               <router-link class="nav-link" to="/about">About</router-link>
             </li>
-            <li class="nav-item">
+            <!--<li class="nav-item">
               <router-link class="nav-link" to="/resources">Resources</router-link>
             </li>
             <li class="nav-item">
               <router-link class="nav-link" to="/shop">Shop</router-link>
-            </li>
+            </li>-->
             <li class="nav-item">
               <router-link class="nav-link" to="/playground">Playground</router-link>
             </li>

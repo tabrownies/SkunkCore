@@ -15,6 +15,26 @@
                         Inspirational People
                     </router-link>
                 </li>
+                <li>
+                    <router-link class="router-link" to="/color-scheme-editor">
+                        Projects
+                    </router-link>
+                </li>
+                <li>
+                    <router-link class="router-link" to="/color-scheme-editor">
+                        Shop
+                    </router-link>
+                </li>
+                <li>
+                    <router-link class="router-link" to="/color-scheme-editor">
+                        Tools
+                    </router-link>
+                </li>
+                <li>
+                    <router-link class="router-link" to="/color-scheme-editor">
+                        Parts
+                    </router-link>
+                </li>
             </ul>
         </nav>
         

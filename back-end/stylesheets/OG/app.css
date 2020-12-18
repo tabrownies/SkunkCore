@@ -1,4 +1,9 @@
 /*from app.vue*/
+* {
+    margin: none !important;
+    padding: none !important;
+    
+}
 
 header {
     display: flex;
@@ -8,7 +13,7 @@ header {
 }
 
 .header {
-    padding: 20px;
+    padding: none;
     text-decoration: none !important;
 }
 
@@ -32,14 +37,19 @@ nav {
     color: var(--logo-hover);
     text-decoration: none !important;
 }
-
+.navbar-nav{
+    margin:0px !important;
+    background-color: inherit;
+}
 .nav-item {
     font-size: 40px !important;
+    padding:0px;
+    border:0px;
 }
 
 .nav-link {
     color: var(--nav-link) !important;
-    font-size: 30px;
+    font-size: 40px;
 }
 
 .active {
