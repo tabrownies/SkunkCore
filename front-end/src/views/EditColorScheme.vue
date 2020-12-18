@@ -9,6 +9,10 @@
                 <input type="text" v-model="scheme.name" placeholder="Name">
             </div>
             <div class="name-value-pair">
+                <h3>Stylesheet:</h3>
+                <input type="text" v-model="scheme.stylesheet" placeholder="Stylesheet">
+            </div>
+            <div class="name-value-pair">
                 <h3>Logo:</h3>
                 <input type="text" v-model="scheme.logo" placeholder="Logo">
             </div>
@@ -83,6 +87,7 @@
             return {
                 id: this.$route.params.id,
                 scheme: {
+                    stylesheet: '',
                     name: '',
                     logo: '',
                     logoHover: '',

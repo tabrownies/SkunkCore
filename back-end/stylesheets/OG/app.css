@@ -39,9 +39,11 @@ nav {
     color: var(--logo-hover);
     text-decoration: none !important;
 }
+.navbar{
+    background-color: var(--base) !important;
+}
 .navbar-nav{
     margin:0px !important;
-    background-color: inherit;
 }
 .nav-item {
     font-size: 40px !important;
