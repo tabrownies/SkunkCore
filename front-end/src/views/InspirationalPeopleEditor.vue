@@ -1,5 +1,5 @@
 <template>
-    <div class="wrapper">
+    <div class="wrapper"  v-if="this.$root.$data.admin">
         <ul>
             <li @click.prevent="selectPerson(person)" v-for="person in inspiration" :key="person.name">
                 <h1>

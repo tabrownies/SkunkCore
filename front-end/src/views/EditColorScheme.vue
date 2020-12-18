@@ -1,5 +1,5 @@
 <template>
-    <div class="wrapper">
+    <div class="wrapper" v-if="this.$root.$data.admin">
         <h1>
             {{scheme.name}}
         </h1>
