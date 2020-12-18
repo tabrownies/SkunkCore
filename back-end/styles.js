@@ -144,13 +144,28 @@ router.post('/set-scheme/:id', async (req, res) => {
 
 
 router.get('/style/:file', async (req, res) => {
-    await res.sendFile(currentDir + req.params.file);
+    try {
+        await res.sendFile(currentDir + req.params.file);
+    } catch (error) {
+        console.log(error);
+    }
+
 })
 router.get('/logo', async (req, res) => {
-    await res.sendFile('/Users/timothybrown/Documents/School/CS 260/Creative Projects/Skunkcore/back-end/assets/logo.png');
+    try {
+        await res.sendFile('/Users/timothybrown/Documents/School/CS 260/Creative Projects/Skunkcore/back-end/assets/logo.png');
+    } catch (error) {
+        console.log(error);
+    }
+
 })
 router.get('/favicon', async (req, res) => {
-    await res.sendFile('/Users/timothybrown/Documents/School/CS 260/Creative Projects/Skunkcore/back-end/assets/favicon.png');
+    try {
+        await res.sendFile('/Users/timothybrown/Documents/School/CS 260/Creative Projects/Skunkcore/back-end/assets/favicon.png');
+    } catch (error) {
+        console.log(error);
+    }
+
 })
 module.exports = {
     model: ColorScheme,
