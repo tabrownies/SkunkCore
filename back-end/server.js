@@ -218,4 +218,10 @@ const styleDirectory = '/Users/timothybrown/Documents/School/CS 260/Creative Pro
 app.get('/api/style/:file', (req,res)=>{
     res.sendFile(styleDirectory+req.params.file);
 })
+app.get('/api/logo', async (req,res)=>{
+    await res.sendFile('/Users/timothybrown/Documents/School/CS 260/Creative Projects/Skunkcore/back-end/assets/logo.png');
+})
+app.get('/api/favicon', async(req,res)=>{
+    await res.sendFile('/Users/timothybrown/Documents/School/CS 260/Creative Projects/Skunkcore/back-end/assets/favicon.png');
+})
 app.listen(5000, () => console.log("Listening on Port 5000!"));
