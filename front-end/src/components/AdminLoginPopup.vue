@@ -2,10 +2,10 @@
     <div class="loginPopupWrapper">
         <form @submit.prevent="login">
             <div>
-                <p>Username: </p> <input type="text" placeholder="Username">
+                <p>Username: </p> <input type="text" v-model="username" placeholder="Username">
             </div>
             <div>
-                <p>Password: </p><input type="password" placeholder="Password">
+                <p>Password: </p><input type="password" v-model="password" placeholder="Password">
             </div>
             <div>
                 <router-link tag="button" to="/">Cancel</router-link>
@@ -36,10 +36,11 @@
                     return;
                 }
                 try{
-                    let responce = axios.post('/api/admin/login',{
+                    let responce = await axios.post('/api/admin/login',{
                         username: this.username,
                         password:this.password,
                     });
+                    console.log(responce);
                     this.$root.$data.admin = responce.data.admin;
                 }catch(error){
                     this.error = "Error: " +error.responce.data.message;

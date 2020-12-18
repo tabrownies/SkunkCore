@@ -38,18 +38,18 @@ const PermissionSchema = mongoose.Schema({
     default: false,
   }
 })
-const Permissions = mongoose.model('Permissions', PermissionSchema);
-let AdminSchema = mongoose.Schema({
+//const Permissions = mongoose.model('Permissions', PermissionSchema);
+const AdminSchema = mongoose.Schema({
   firstname: String,
   lastname: String,
   username: String,
   password: String,
-  permissions: {
+ /*permissions: {
     type: mongoose.Schema.ObjectId,
     ref: 'Permissions'
-  }
+  }*/
 })
-// This is a hook that will be called before a user record is saved,
+// This is a hook that will be called before a admin record is saved,
 // allowing us to be sure to salt and hash the password first.
 AdminSchema.pre('save', async function (next) {
   // only hash the password if it has been modified (or is new)
@@ -69,7 +69,7 @@ AdminSchema.pre('save', async function (next) {
 });
 
 // This is a method that we can call on Admin objects to compare the hash of the
-// password the browser sends with the has of the user's true password stored in
+// password the browser sends with the has of the admin's true password stored in
 // the database.
 AdminSchema.methods.comparePassword = async function (password) {
   try {
@@ -83,13 +83,14 @@ AdminSchema.methods.comparePassword = async function (password) {
   }
 };
 
-// This is a method that will be called automatically any time we convert a user
+// This is a method that will be called automatically any time we convert a admin
 // object to JSON. It deletes the password hash from the object. This ensures
 // that we never send password hashes over our API, to avoid giving away
 // anything to an attacker.
 AdminSchema.methods.toJSON = function () {
   var obj = this.toObject();
   delete obj.password;
+  console.log('Deleted Password');
   return obj;
 }
 
@@ -99,24 +100,24 @@ const Admin = mongoose.model('Admin', AdminSchema);
 /* Middleware */
 
 // middleware function to check for logged-in users
-const hasPermission = async (req, res, next) => {
+/*const hasPermission = async (req, res, next) => {
   if (!req.session.userID)
     return res.status(403).send({
       message: "not logged in"
     });
   try {
-    const user = await Admin.findOne({
+    const admin = await Admin.findOne({
       _id: req.session.userID
     });
-    if (!user) {
+    if (!admin) {
       return res.status(403).send({
         message: "not logged in"
       });
     }
-    // set the user field in the request
-    req.user = user;
+    // set the admin field in the request
+    req.admin = admin;
   } catch (error) {
-    // Return an error if user does not exist.
+    // Return an error if admin does not exist.
     return res.status(403).send({
       message: "not logged in"
     });
@@ -124,7 +125,7 @@ const hasPermission = async (req, res, next) => {
 
   // if everything succeeds, move to the next middleware
   next();
-};
+};*/
 router.post('/login', async (req, res) => {
   if (!req.body.username || !req.body.password)
     return res.sendStatus(400);
@@ -132,18 +133,23 @@ router.post('/login', async (req, res) => {
     const admin = await Admin.findOne({
       username: req.body.username,
     });
+    console.log(admin);
     if (!admin) {
+      console.log("username wrong");
       return res.status(403).send({
         message: "username or password is wrong"
       });
     }
     if (!await admin.comparePassword(req.body.password)) {
+      console.log("password wrong");
       return res.status(403).send({
         message: "username or password is wrong"
       });
     }
+    console.log(admin);
+    console.log(`${admin.firstname} ${admin.lastname} logged in! :)`);
     return res.send({
-      admin:admin
+      admin: admin
     });
   } catch (error) {
     console.log(error);
@@ -152,4 +158,5 @@ router.post('/login', async (req, res) => {
 })
 module.exports = {
   routes: router,
+  model: Admin,
 };
