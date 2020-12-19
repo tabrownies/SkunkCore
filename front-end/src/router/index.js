@@ -7,7 +7,7 @@ import Admin from '../views/Admin.vue'
 import ColorSchemeEditor from '../views/ColorSchemeEditor.vue'
 import EditColorScheme from '../views/EditColorScheme.vue'
 import InspirationalPeopleEditor from '../views/InspirationalPeopleEditor.vue'
-
+import Tools from '../views/Tools.vue'
 Vue.use(VueRouter)
 
 const routes = [
@@ -46,6 +46,11 @@ const routes = [
     name: 'InspirationalPeopleEditor',
     component: InspirationalPeopleEditor,
   },
+  {
+    path: '/tools',
+    name: 'Tools',
+    component: Tools,
+  }
 ]
 
 const router = new VueRouter({
