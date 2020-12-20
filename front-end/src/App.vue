@@ -39,6 +39,9 @@
       <router-link to="/admin" class="footer-link">
         Admin Portal
       </router-link>
+      <router-link to="/graditute" class="footer-link">
+        Graditude Journal
+      </router-link>
       <router-link to="#" class="footer-link">
         Contact Us
       </router-link>
@@ -94,106 +97,3 @@
 <style scoped>
   @import '/api/style/app.css';
 </style>
-<!--<style>
-  * {
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
-  }
-
-  body {
-    background-color: var(--base);
-  }
-</style>
-<style scoped>
-  header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-
-  }
-
-  .header {
-    padding: 20px;
-    text-decoration: none;
-  }
-
-  nav {
-    width: 100%;
-    overflow: hidden;
-    background-color: inherit !important;
-    border-top: 8px solid var(--accent);
-    border-bottom: 8px solid var(--accent);
-
-  }
-
-  #logo {
-    color: var(--logo);
-    font-size: 80px;
-    text-align: center;
-  }
-
-  #logo:hover {
-    color: var(--logo-hover);
-    text-decoration: none;
-  }
-
-  .nav-item {
-    font-size: 40px !important;
-  }
-
-  .nav-link {
-    color: var(--nav-link) !important;
-    font-size:30px;
-  }
-
-  .active {
-    text-decoration: underline;
-  }
-
-  .nav-link:hover {
-    color: var(--nav-link-hover) !important;
-  }
-
-  footer {
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-items: center;
-    background-color: var(--accent);
-  }
-
-  .footer-link {
-    font-size: 15px;
-    padding: 15px 10px;
-    text-align: center;
-    color: var(--nav-link);
-    text-decoration: none;
-  }
-
-  .footer-link:hover {
-    color: var(--nav-link-hover);
-    text-decoration: underline;
-  }
-
-  @media only screen and (min-width: 992px) {
-    .collapse {
-      display: flex;
-      justify-content: center;
-    }
-
-    .navbar-nav {
-      width: 100% !important;
-      display: flex;
-      justify-content: space-around !important;
-    }
-  }
-
-  @media only screen and (max-width:490px) {
-    #logo {
-      font-size: 60px;
-    }
-  }
-</style>-->
