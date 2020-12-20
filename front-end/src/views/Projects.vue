@@ -5,7 +5,7 @@
                 New Project:
             </h2>
             <input type="text" v-model="project.title" placeholder="Title">
-            <input type="text" v-model="project.description" placeholder="Description">
+            <textarea type="text" v-model="project.description" placeholder="Description"></textarea>
             <button @click.prevent="addProject">Add</button>
         </form>
         <div class='projectSearch'>
@@ -19,9 +19,9 @@
             <li class="projectList" v-for="project in searchedProjects" :key="project.name">
                 <input type="text" v-model="project.title">
                 <h6>
-                    {{project._id}}
+                    ID: {{project._id}}
                 </h6>
-                <input type="text" v-model="project.description">
+                <textarea type="text" v-model="project.description"></textarea> 
                 <div>
                     <button @click.prevent="updateProject(project)">Update</button>
                     <button @click.prevent="deleteProject(project)">Delete</button>
@@ -53,7 +53,7 @@
                 for (let i = 0; i < this.projects.length; ++i) {
                     let match = true;
                     for (let j = 0; j < this.searchbarText.length; ++j) {
-                        if (this.searchbarText[j].toLowerCase() != this.projects[i].name[j].toLowerCase()) {
+                        if (this.searchbarText[j].toLowerCase() != this.projects[i].title[j].toLowerCase()) {
                             match = false;
                         }
                     }
@@ -77,12 +77,7 @@
             },
             addProject: async function () {
                 try {
-                    await axios.post("api/projects", {
-                        name: this.project.name,
-                        link: this.project.link,
-                        imageLink: this.project.imageLink,
-                        price: this.project.price,
-                    });
+                    await axios.post("api/projects", this.project);
                     this.getProjects();
                 } catch (error) {
                     console.log(error);
