@@ -90,7 +90,6 @@ AdminSchema.methods.comparePassword = async function (password) {
 AdminSchema.methods.toJSON = function () {
   var obj = this.toObject();
   delete obj.password;
-  console.log('Deleted Password');
   return obj;
 }
 
@@ -127,7 +126,6 @@ const Admin = mongoose.model('Admin', AdminSchema);
   next();
 };*/
 const isAdmin = async (req, res, next) => {
-  console.log(req.session.adminID);
   if (!req.session.adminID){
     return res.status(403).send({
       message: "You do not have sufficient privilages to access this"

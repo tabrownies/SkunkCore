@@ -1,0 +1,62 @@
+.projectsWrapper *{
+    box-sizing: border-box;
+    margin:none;
+    padding:none;
+}
+.projectsWrapper{
+    display:flex;
+    flex-direction: column;
+    align-items: center;   
+}
+.projectsWrapper form,
+.projectSearch,
+.projectsWrapper ul{
+    width:80%;
+}
+.projectSearch{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--accent);
+
+}
+.projectsSearch input,
+.projectSearch p{
+    padding:0px;
+    margin:0px;
+}
+.projectSearch input{
+    height:40px;
+    font-size:20px;
+    width:50%;
+}
+.projectsSearch p{
+    font-size:40px;
+}
+.projectsWrapper ul{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+.projectList{
+    
+    width:300px;
+    margin:10px;
+}
+.projectList img{
+    width:300px;
+    height:300px;
+    margin:5px;
+}
+.projectList div{
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.projectList input:first-of-type{
+    width:300px;
+}
+.projectList input{
+    width:91px;
+}

@@ -37,4 +37,6 @@ const tools = require('./tools.js');
 app.use("/api/tools", tools.routes);
 const parts = require('./parts.js');
 app.use("/api/parts", parts.routes);
+const projects = require('./projects.js');
+app.use("/api/projects", projects.routes);
 app.listen(5000, () => console.log("Listening on Port 5000!"));

@@ -16,7 +16,7 @@
                     </router-link>
                 </li>
                 <li>
-                    <router-link class="router-link" to="/color-scheme-editor">
+                    <router-link class="router-link" to="/projects">
                         Projects
                     </router-link>
                 </li>

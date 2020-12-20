@@ -20,10 +20,10 @@
             <li class="nav-item">
               <router-link class="nav-link" to="/about">About</router-link>
             </li>
-            <!--<li class="nav-item">
+            <li class="nav-item">
               <router-link class="nav-link" to="/resources">Resources</router-link>
             </li>
-            <li class="nav-item">
+            <!--<li class="nav-item">
               <router-link class="nav-link" to="/shop">Shop</router-link>
             </li>-->
             <li class="nav-item">
@@ -39,7 +39,7 @@
       <router-link to="/admin" class="footer-link">
         Admin Portal
       </router-link>
-      <router-link to="/graditute" class="footer-link">
+      <router-link to="/graditude" class="footer-link">
         Graditude Journal
       </router-link>
       <router-link to="#" class="footer-link">
@@ -67,7 +67,6 @@
         try {
           let responce = await axios.get('/api/color-scheme');
           let data = responce.data;
-          console.log(data);
           await style.setProperty('--logo', data.logo);
           await style.setProperty('--logo-hover', data.logoHover);
           await style.setProperty('--base', data.base);
