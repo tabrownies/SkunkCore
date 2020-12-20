@@ -1,0 +1,62 @@
+.partsWrapper *{
+    box-sizing: border-box;
+    margin:none;
+    padding:none;
+}
+.partsWrapper{
+    display:flex;
+    flex-direction: column;
+    align-items: center;   
+}
+.partsWrapper form,
+.partSearch,
+.partsWrapper ul{
+    width:80%;
+}
+.partSearch{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--accent);
+
+}
+.partsSearch input,
+.partSearch p{
+    padding:0px;
+    margin:0px;
+}
+.partSearch input{
+    height:40px;
+    font-size:20px;
+    width:50%;
+}
+.partsSearch p{
+    font-size:40px;
+}
+.partsWrapper ul{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+.partList{
+    
+    width:300px;
+    margin:10px;
+}
+.partList img{
+    width:300px;
+    height:300px;
+    margin:5px;
+}
+.partList div{
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.partList input:first-of-type{
+    width:300px;
+}
+.partList input{
+    width:91px;
+}

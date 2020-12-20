@@ -8,6 +8,7 @@ import ColorSchemeEditor from '../views/ColorSchemeEditor.vue'
 import EditColorScheme from '../views/EditColorScheme.vue'
 import InspirationalPeopleEditor from '../views/InspirationalPeopleEditor.vue'
 import Tools from '../views/Tools.vue'
+import Parts from '../views/Parts.vue'
 Vue.use(VueRouter)
 
 const routes = [
@@ -50,6 +51,11 @@ const routes = [
     path: '/tools',
     name: 'Tools',
     component: Tools,
+  },
+  {
+    path: '/parts',
+    name: 'Parts',
+    component: Parts,
   }
 ]
 

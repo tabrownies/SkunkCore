@@ -26,12 +26,12 @@
                     </router-link>
                 </li>
                 <li>
-                    <router-link class="router-link" to="/color-scheme-editor">
+                    <router-link class="router-link" to="/tools">
                         Tools
                     </router-link>
                 </li>
                 <li>
-                    <router-link class="router-link" to="/color-scheme-editor">
+                    <router-link class="router-link" to="/parts">
                         Parts
                     </router-link>
                 </li>
