@@ -9,8 +9,8 @@ router.use(bodyParser.urlencoded({
     extended: false
 }));
 var currentSchemeId = '5fc436c92ba2b124e31743ec';
-const styleDirectory = '/Users/timothybrown/Documents/School/CS 260/Creative Projects/Skunkcore/back-end/stylesheets/';
-let currentDir = '/Users/timothybrown/Documents/School/CS 260/Creative Projects/Skunkcore/back-end/stylesheets/OG/';
+const styleDirectory = '/Users/timothybrown/Documents/Projects/SkunkCore/back-end/stylesheets/';
+let currentDir = '/Users/timothybrown/Documents/Projects/SkunkCore/back-end/stylesheets/OG/';
 const colorSchemeSchema = new mongoose.Schema({
     stylesheet: String,
     name: String,
@@ -158,15 +158,17 @@ router.get('/style/:file', async (req, res) => {
 })
 router.get('/logo', async (req, res) => {
     try {
-        await res.sendFile('/Users/timothybrown/Documents/School/CS 260/Creative Projects/Skunkcore/back-end/assets/logo.png');
+        ///Users/timothybrown/Documents/Projects/SkunkCore/back-end/assets/logo.png
+        await res.sendFile('/Users/timothybrown/Documents/Projects/SkunkCore/back-end/assets/logo.png');
     } catch (error) {
         console.log(error);
+        res.send(500);
     }
 
 })
 router.get('/favicon', async (req, res) => {
     try {
-        await res.sendFile('/Users/timothybrown/Documents/School/CS 260/Creative Projects/Skunkcore/back-end/assets/favicon.png');
+        await res.sendFile('/Users/timothybrown/Documents/Projects/SkunkCore/back-end/assets/favicon.png');
     } catch (error) {
         console.log(error);
     }

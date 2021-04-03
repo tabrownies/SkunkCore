@@ -5,8 +5,6 @@
                 {{title}}
             </h2>
         </div>
-
-        <img :src="img">
         <p class="description">
             {{description}}
         </p>
@@ -41,73 +39,11 @@
     }
 
     .wrapper {
-        width: 100%;
-        height: 100%;
-        position: relative;
-    }
-
-    img {
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: 0;
-    }
-
-    .title-wrapper {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        background-image: linear-gradient(rgb(20, 20, 20, .5), rgb(255, 255, 255, .5));
-    }
-
-    h2 {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        display: flex;
-        justify-content: left;
-        align-items: center;
-        padding: 20px;
-        padding-left: 60px;
-        background-image: linear-gradient(rgb(20, 20, 20, .5), rgb(255, 255, 255, .5));
-        font-size: 50px;
-        z-index: 1;
-
-    }
-
-    p {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        padding:10px;
-        background-image: linear-gradient(rgb(70, 70, 70,.5),rgb(151, 151, 151,.5));
-        color:rgb(20, 24, 92);
+        width: 600px;
         
-        font-size: 30px;
-        display: none;
+        
     }
-
-    
-    .wrapper:hover {}
-
-    .wrapper:hover .title-wrapper {
-        background-image: linear-gradient(rgb(150, 150, 150, .5), rgb(250, 250, 250, .5));
-        z-index: 1;
-        height: 100%;
-    }
-
-    .wrapper:hover h2 {
-        background-image: linear-gradient(rgb(150, 150, 150, .5), rgb(250, 250, 250, .5));
-    }
-
-    .wrapper:hover img {}
-
-    .wrapper:hover p {
-        z-index:2;
-        display:initial;
+    .title-wrapper:hover{
+        text-decoration: none !important;
     }
 </style>

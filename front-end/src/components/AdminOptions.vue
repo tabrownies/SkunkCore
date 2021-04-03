@@ -16,7 +16,7 @@
                     </router-link>
                 </li>
                 <li>
-                    <router-link class="router-link" to="/projects">
+                    <router-link class="router-link" to="/projects-editor">
                         Projects
                     </router-link>
                 </li>

@@ -11,24 +11,24 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav">
-            <li class="nav-item">
+            <!--<li class="nav-item">
               <router-link class="nav-link" to="/">Home <span class="sr-only">(current)</span></router-link>
-            </li>
+            </li>-->
             <li class="nav-item">
-              <router-link class="nav-link" to="/projects">Projects</router-link>
+              <router-link class="nav-link" to="/">Projects</router-link>
             </li>
             <li class="nav-item">
               <router-link class="nav-link" to="/about">About</router-link>
             </li>
-            <li class="nav-item">
+            <!--<li class="nav-item">
               <router-link class="nav-link" to="/resources">Resources</router-link>
             </li>
-            <!--<li class="nav-item">
+            <li class="nav-item">
               <router-link class="nav-link" to="/shop">Shop</router-link>
-            </li>-->
+            </li>
             <li class="nav-item">
               <router-link class="nav-link" to="/playground">Playground</router-link>
-            </li>
+            </li>-->
           </ul>
         </div>
       </nav>

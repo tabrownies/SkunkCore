@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
+//import Home from '../views/Home.vue'
 import About from '../views/About.vue'
-import Playground from '../views/Playground.vue'
+//import Playground from '../views/Playground.vue'
 import Admin from '../views/Admin.vue'
 import ColorSchemeEditor from '../views/ColorSchemeEditor.vue'
 import EditColorScheme from '../views/EditColorScheme.vue'
@@ -10,24 +10,25 @@ import InspirationalPeopleEditor from '../views/InspirationalPeopleEditor.vue'
 import Tools from '../views/Tools.vue'
 import Parts from '../views/Parts.vue'
 import Projects from '../views/Projects.vue'
+import ProjectsEditor from '../views/ProjectsEditor.vue'
 Vue.use(VueRouter)
 
 const routes = [
-  {
+  /*{
     path: '/',
     name: 'Home',
     component: Home
-  },
+  },*/
   {
     path: '/about',
     name: 'About',
     component: About
   },
-  {
+  /*{
     path: '/playground',
     name: 'Playground',
     component: Playground
-  },
+  },*/
   {
     path: '/admin',
     name: 'Admin',
@@ -59,9 +60,14 @@ const routes = [
     component: Parts,
   },
   {
-    path: '/projects',
+    path: '/',
     name: 'Projects',
     component: Projects,
+  },
+  {
+    path: '/projects-editor',
+    name: 'ProjectsEditor',
+    component: ProjectsEditor,
   }
 ]
 
