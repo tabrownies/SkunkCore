@@ -26,9 +26,9 @@ router.get('/', async (req, res) => {
         res.sendStatus(500);
     }
 });
-router.get('/pages', async (req, res) => {
+router.get('/pages/:id', async (req, res) => {
     try {
-        res.sendFile('/Users/timothybrown/Documents/Projects/SkunkCore/back-end/projects/index.html');
+        res.sendFile(`/Users/timothybrown/Documents/Projects/SkunkCore/back-end/projects/${req.params.id}.html`);
     } catch (error) {
         console.log(error);
         res.sendStatus(500);

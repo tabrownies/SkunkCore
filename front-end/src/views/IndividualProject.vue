@@ -9,12 +9,13 @@
     export default {
         name: 'IndividualProject',
         created: async function () {
-            let responce = await axios.get('/api/projects/pages');
+            let responce = await axios.get(`/api/projects/pages/${this.id}`);
             this.rawHTML = responce.data;
         },
         data: function (){
             return {
-                rawHTML:'<p>hii</p>',
+                id: this.$route.params.id,
+                rawHTML:'',
                 
             }
         }

@@ -11,6 +11,7 @@ import Tools from '../views/Tools.vue'
 import Parts from '../views/Parts.vue'
 import Projects from '../views/Projects.vue'
 import ProjectsEditor from '../views/ProjectsEditor.vue'
+import IndividualProject from '../views/IndividualProject.vue'
 Vue.use(VueRouter)
 
 const routes = [
@@ -63,6 +64,12 @@ const routes = [
     path: '/',
     name: 'Projects',
     component: Projects,
+  },
+  {
+    path: '/projects/:id',
+    //I need to figure out how to customize the name
+    name: 'Project',
+    component: IndividualProject,
   },
   {
     path: '/projects-editor',

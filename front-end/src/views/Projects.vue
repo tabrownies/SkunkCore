@@ -3,9 +3,12 @@
     <h2>Projects on their way!</h2>
     <ul>
       <li v-for="project of projects" v-bind:key="project.title">
-        <router-link to="/"
-        >   <project-link :description="project.description" :title="project.title">
-            </project-link>
+        <router-link :to="'/projects/'+project._id">
+          <project-link
+            :description="project.description"
+            :title="project.title"
+          >
+          </project-link>
         </router-link>
       </li>
     </ul>
@@ -13,12 +16,12 @@
 </template>
 <script>
 import axios from "axios";
-import ProjectLink from '../components/ProjectLink.vue';
+import ProjectLink from "../components/ProjectLink.vue";
 //import IndividualProject from "../components/IndividualProject.vue"
 export default {
   name: "projects",
   components: {
-    ProjectLink
+    ProjectLink,
     //IndividualProject
   },
   data: function () {
