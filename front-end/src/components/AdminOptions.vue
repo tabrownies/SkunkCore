@@ -1,5 +1,5 @@
 <template>
-    <div class="wrapper">
+    <div class="admin-options-wrapper">
         <h1>
             Welcome {{admin.firstname}} {{admin.lastname}}
         </h1>

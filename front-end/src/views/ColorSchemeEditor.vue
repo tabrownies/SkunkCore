@@ -1,5 +1,5 @@
 <template>
-    <div class="wrapper" v-if="this.$root.$data.admin">
+    <div class="color-scheme-editor-wrapper" v-if="this.$root.$data.admin">
         <h1>
             Scheme Admin Page
         </h1>
@@ -89,7 +89,7 @@
             deleteScheme: async function (scheme) {
                 console.log(scheme._id);
                 try {
-                    let responce = await axios.delete(`/api/delete-color-scheme/${scheme._id}`);
+                    let responce = await axios.delete(`/api/styles/delete-color-scheme/${scheme._id}`);
                     console.log(responce);
                 } catch (error) {
                     console.log(error);
@@ -99,7 +99,7 @@
             },
             applyScheme: async function (scheme) {
                 try {
-                    let responce = await axios.post(`/api/set-scheme/${scheme._id}`);
+                    let responce = await axios.post(`/api/styles/set-scheme/${scheme._id}`);
                     document.location.reload(true);
                     console.log(responce);
                 } catch (error) {
@@ -120,7 +120,7 @@
             },
             getSchemes: async function () {
                 try {
-                    let responce = await axios.get('/api/color-schemes');
+                    let responce = await axios.get('/api/styles/color-schemes');
                     console.log(responce);
                     this.schemes = responce.data;
                     this.fixSchemeNames();
@@ -140,7 +140,7 @@
             },
             uploadNewColorScheme: async function () {
                 try {
-                    let responce = await axios.post('/api/color-scheme', this.newColorScheme);
+                    let responce = await axios.post('/api/styles/color-scheme', this.newColorScheme);
                     console.log(responce);
                 } catch (error) {
                     console.log(error);

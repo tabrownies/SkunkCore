@@ -50,7 +50,7 @@
       stylePage: async function () {
         let style = document.getElementsByTagName('*')[0].style;
         try {
-          let responce = await axios.get('/api/color-scheme');
+          let responce = await axios.get('/api/styles/color-scheme');
           let data = responce.data;
           await style.setProperty('--logo', data.logo);
           await style.setProperty('--logo-hover', data.logoHover);
@@ -75,9 +75,6 @@
     }
   }
 </script>
-<style>
-  @import '/api/styles/style/style.css';
-</style>
 <style scoped>
   @import '/api/styles/style/app.css';
 </style>

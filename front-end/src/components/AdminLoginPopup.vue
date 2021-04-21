@@ -1,5 +1,5 @@
 <template>
-    <div class="loginPopupWrapper">
+    <div class="login-popup-wrapper">
         <form @submit.prevent="login">
             <div>
                 <p>Username: </p> <input type="text" v-model="username" placeholder="Username">

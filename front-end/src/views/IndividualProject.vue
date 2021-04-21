@@ -21,3 +21,6 @@
         }
     }
 </script>
+<style scoped>
+ @import '/api/styles/style/individualProject.css';
+</style>

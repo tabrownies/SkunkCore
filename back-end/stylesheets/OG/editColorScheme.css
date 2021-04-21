@@ -1,16 +1,16 @@
-.wrapper {
+.edit-color-scheme-wrapper {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
 }
 
-h1 {
+.edit-color-scheme-wrapper h1 {
     height: 60px;
     color: var(--header);
     margin: 20px 0 10px 0;
 }
 
-form {
+.edit-color-scheme-wrapper form {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -19,7 +19,7 @@ form {
     margin: 0 20px;
 }
 
-.name-value-pair {
+.edit-color-scheme-wrapper .name-value-pair {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -29,16 +29,16 @@ form {
     padding: 5px;
 }
 
-h3 {
+.edit-color-scheme-wrapper h3 {
     margin: 5px;
     color: var(--text2);
 }
 
-input {
+.edit-color-scheme-wrapper input {
     margin: 5px;
 }
 
-button {
+.edit-color-scheme-wrapper button {
     color: var(--text1);
     background-color: var(--accent2);
     padding: 5px 8px;

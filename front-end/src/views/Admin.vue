@@ -1,5 +1,5 @@
 <template>
-    <div class="wrapper">
+    <div class="admin-wrapper">
         <AdminOptions v-if="admin"></AdminOptions>
         <AdminLoginPopup v-else></AdminLoginPopup>
     </div>
@@ -21,3 +21,6 @@
         }
     }
 </script>
+<style scoped>
+    @import '/api/styles/style/admin.css';
+</style>

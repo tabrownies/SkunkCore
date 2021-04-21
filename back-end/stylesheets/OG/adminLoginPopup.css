@@ -1,4 +1,4 @@
-.loginPopupWrapper{
+.login-popup-wrapper{
     height:100%;
     width:100%;
     background-color: rgb(100,100,100,.8);
@@ -10,18 +10,18 @@
     align-items: center;
     justify-content: center;
 }
-.loginPopupWrapper form{
+.login-popup-wrapper form{
     display:flex;
     flex-direction: column;
     background-color: var(--base);
 }
-.loginPopupWrapper form div{
+.login-popup-wrapper form div{
     display: flex;
     flex-direction: row;
     align-items: center;
 }
-.loginPopupWrapper input
-.loginPopupWrapper p{
+.login-popup-wrapper input
+.login-popup-wrapper p{
     display: flex;
     align-items:center;
     justify-content: center;

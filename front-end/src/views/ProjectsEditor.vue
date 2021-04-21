@@ -1,5 +1,5 @@
 <template>
-    <div class="projectsWrapper">
+    <div class="projects-editor-wrapper">
         <form>
             <h2>
                 New Project:
@@ -22,15 +22,13 @@
                 <h6>
                     ID: {{project._id}}
                 </h6>
-                <h6>
-                    Link: {{project.link}}
-                </h6>
                 <textarea type="text" v-model="project.description"></textarea> 
 
                 <div>
                     <button @click.prevent="updateProject(project)">Update</button>
                     <button @click.prevent="deleteProject(project)">Delete</button>
                 </div>
+                Active: <input type="checkbox" v-model="project.active">
             </li>
         </ul>
     </div>
@@ -45,6 +43,7 @@
                     title: '',
                     description: '',
                     link:'',
+                    active:'',
                 },
                 projects: Array,
                 searchbarText: '',
@@ -111,5 +110,5 @@
     }
 </script>
 <style scoped>
-    @import '/api/style/styles/projects.css';
+    @import '/api/style/styles/projectsEditor.css';
 </style>

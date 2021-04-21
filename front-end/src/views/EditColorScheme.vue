@@ -1,5 +1,5 @@
 <template>
-    <div class="wrapper" v-if="this.$root.$data.admin">
+    <div class="edit-color-scheme-wrapper" v-if="this.$root.$data.admin">
         <h1>
             {{scheme.name}}
         </h1>
@@ -113,7 +113,7 @@
         methods: {
             getScheme: async function () {
                 try {
-                    let responce = await axios.get(`/api/color-scheme/${this.id}`);
+                    let responce = await axios.get(`/api/styles/color-scheme/${this.id}`);
                     console.log(this.scheme.data);
                     this.scheme = responce.data;
                 } catch (error) {
@@ -122,7 +122,7 @@
             },
             updateScheme: async function () {
                 try {
-                    let responce = await axios.put(`/api/color-scheme/${this.id}`, this.scheme);
+                    let responce = await axios.put(`/api/styles/color-scheme/${this.id}`, this.scheme);
                     console.log(responce);
                 } catch (error) {
                     console.log(error);

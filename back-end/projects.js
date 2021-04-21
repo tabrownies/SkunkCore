@@ -20,6 +20,7 @@ const projectSchema = new mongoose.Schema({
     version: Number,
     link: String,
     linkIndex: Number,
+    active: Boolean,
 })
 const Project = mongoose.model('project', projectSchema);
 //these functions are the basic getting and setting functions to manage the projects
@@ -89,18 +90,10 @@ router.put('/:id', isAdmin, async (req, res) => {
         let project = await Project.findOne({
             _id: req.params.id
         }, async (error, project) => {
-            let linkName = '';
-            for (char of req.body.title) {
-                if (char === ' ') {
-                    linkName+='-';
-                } else {
-                    linkName += char;
-                }
-            }
-            title = req.body.title;
-            description = req.body.description;
-            tags = req.body.tags;
-            link = linkName;
+            project.title = req.body.title;
+            project.description = req.body.description;
+            project.tags = req.body.tags;
+            project.active = req.body.active;
             await project.save();
         });
         res.sendStatus(200);

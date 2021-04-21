@@ -79,6 +79,7 @@ router.post('/color-scheme', isAdmin, async (req, res) => {
             text: req.body.text,
             text2: req.body.text2
         })
+        console.log('cheese');
         colorScheme.save();
         res.send(colorScheme);
     } catch (error) {

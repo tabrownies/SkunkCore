@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="projects-wrapper">
     <h2>Projects on their way!</h2>
     <ul>
       <li v-for="project of projects" v-bind:key="project.title">
@@ -17,12 +17,10 @@
 <script>
 import axios from "axios";
 import ProjectLink from "../components/ProjectLink.vue";
-//import IndividualProject from "../components/IndividualProject.vue"
 export default {
   name: "projects",
   components: {
     ProjectLink,
-    //IndividualProject
   },
   data: function () {
     return {
@@ -44,3 +42,6 @@ export default {
   },
 };
 </script>
+<style scoped>
+@import '/api/styles/style/projects.css';
+</style>
