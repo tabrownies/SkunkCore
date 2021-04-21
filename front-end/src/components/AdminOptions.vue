@@ -11,28 +11,8 @@
                     </router-link>
                 </li>
                 <li>
-                    <router-link  class="router-link" to="/inspirational-people-editor">
-                        Inspirational People
-                    </router-link>
-                </li>
-                <li>
                     <router-link class="router-link" to="/projects-editor">
                         Projects
-                    </router-link>
-                </li>
-                <li>
-                    <router-link class="router-link" to="/color-scheme-editor">
-                        Shop
-                    </router-link>
-                </li>
-                <li>
-                    <router-link class="router-link" to="/tools">
-                        Tools
-                    </router-link>
-                </li>
-                <li>
-                    <router-link class="router-link" to="/parts">
-                        Parts
                     </router-link>
                 </li>
                 <li>

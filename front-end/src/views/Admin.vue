@@ -14,16 +14,6 @@
             AdminLoginPopup,
             AdminOptions
         },
-        /*Moved to App.vue
-        async created() {
-            try{
-                let responce = await axios.get('/api/admin');
-                this.$root.$data.admin = responce.data.admin;
-            }catch(error){
-                console.log(error);
-                this.$root.$data.admin = null;
-            }
-        },*/
         computed: {
             admin() {
                 return this.$root.$data.admin;
