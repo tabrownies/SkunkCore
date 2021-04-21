@@ -49,5 +49,5 @@
     }
 </script>
 <style scoped>
-    @import '/api/style/adminLoginPopup.css';
+    @import '/api/styles/style/adminLoginPopup.css';
 </style>

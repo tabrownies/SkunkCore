@@ -9,12 +9,12 @@
     export default {
         name: 'IndividualProject',
         created: async function () {
-            let responce = await axios.get(`/api/projects/pages/${this.id}`);
+            let responce = await axios.get(`/api/projects/pages/${this.linkNameWithIndex}`);
             this.rawHTML = responce.data;
         },
         data: function (){
             return {
-                id: this.$route.params.id,
+                linkNameWithIndex: this.$route.params.linkNameWithIndex,
                 rawHTML:'',
                 
             }

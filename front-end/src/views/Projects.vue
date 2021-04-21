@@ -3,7 +3,7 @@
     <h2>Projects on their way!</h2>
     <ul>
       <li v-for="project of projects" v-bind:key="project.title">
-        <router-link :to="'/projects/'+project._id">
+        <router-link :to="'/projects/'+project.link+project.linkIndex">
           <project-link
             :description="project.description"
             :title="project.title"

@@ -45,5 +45,5 @@
     }
 </script>
 <style scoped>
-    @import '/api/style/adminOptions.css';
+    @import '/api/styles/style/adminOptions.css';
 </style>

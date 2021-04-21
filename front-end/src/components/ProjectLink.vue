@@ -31,7 +31,7 @@
         }
     }
 </script>
-<style scoped>
+<style scoped>/*this needs to be fixed*/
     * {
         box-sizing: border-box;
         padding: 0;

@@ -111,5 +111,5 @@
     }
 </script>
 <style scoped>
-    @import '/api/style/projects.css';
+    @import '/api/style/styles/projects.css';
 </style>

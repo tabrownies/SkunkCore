@@ -2,7 +2,7 @@
   <div id="app">
     <header>
       <router-link class="header" to="/">
-        <img id="logo" src="/api/logo">
+        <img id="logo" src="/api/styles/logo">
       </router-link>
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
@@ -13,9 +13,6 @@
           <ul class="navbar-nav">
             <li class="nav-item">
               <router-link class="nav-link" to="/">Projects</router-link>
-            </li>
-            <li class="nav-item">
-              <router-link class="nav-link" to="/about">About</router-link>
             </li>
           </ul>
         </div>
@@ -79,8 +76,8 @@
   }
 </script>
 <style>
-  @import '/api/style/style.css';
+  @import '/api/styles/style/style.css';
 </style>
 <style scoped>
-  @import '/api/style/app.css';
+  @import '/api/styles/style/app.css';
 </style>

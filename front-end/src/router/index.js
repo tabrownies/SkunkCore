@@ -30,7 +30,7 @@ const routes = [
     component: Projects,
   },
   {
-    path: '/projects/:id',
+    path: '/projects/:linkNameWithIndex',
     //I need to figure out how to customize the name
     name: 'Project',
     component: IndividualProject,
