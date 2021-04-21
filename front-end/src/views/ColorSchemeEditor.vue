@@ -152,5 +152,5 @@
     }
 </script>
 <style scoped>
-    @import '/api/style/colorSchemeEditor.css';
+    @import '/api/styles/colorSchemeEditor.css';
 </style>
