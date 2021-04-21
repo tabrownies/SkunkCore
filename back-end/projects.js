@@ -26,13 +26,22 @@ const Project = mongoose.model('project', projectSchema);
 //these functions are the basic getting and setting functions to manage the projects
 router.get('/', async (req, res) => {
     try {
-        let projects = await Project.find();
+        let projects = await Project.find({"active":true});
         res.send(projects);
     } catch (error) {
         console.log(error);
         res.sendStatus(500);
     }
 });
+router.get('/all', isAdmin, async (req,res)=>{
+    try {
+        let projects = await Project.find();
+        res.send(projects);
+    } catch (error) {
+        console.log(error);
+        res.sendStatus(500);
+    }
+})
 router.get('/:id', async (req, res) => {
 
     try {

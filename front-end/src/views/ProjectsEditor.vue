@@ -72,7 +72,7 @@
         methods: {
             getProjects: async function () {
                 try {
-                    let responce = await axios.get("/api/projects");
+                    let responce = await axios.get("/api/projects/all");
                     console.log(responce);
                     this.projects = responce.data;
                 } catch (error) {
