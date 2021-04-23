@@ -1,5 +1,5 @@
 <template>
-    <div class="wrapper">
+    <div class="project-link-wrapper">
         <div class="title-wrapper">
             <h2 class="title">
                 {{title}}
@@ -32,18 +32,6 @@
     }
 </script>
 <style scoped>/*this needs to be fixed*/
-    * {
-        box-sizing: border-box;
-        padding: 0;
-        margin: 0;
-    }
-
-    .wrapper {
-        width: 600px;
-        
-        
-    }
-    .title-wrapper:hover{
-        text-decoration: none !important;
-    }
+    @import '/api/styles/style/projectLink.css';
+    
 </style>

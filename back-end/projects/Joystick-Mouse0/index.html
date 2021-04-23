@@ -1,0 +1,99 @@
+<html>
+
+<head>
+    <link href="/api/projects/pages/Joystick-Mouse0/index.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    <div class="joystick-wrapper">
+        <h1>
+            Home Made Joystick
+        </h1>
+        <img>
+        <h2>
+            About
+        </h2>
+        <p>
+            This joystick can be used as a mouse for any computer. It is built from raw materials: cardboard, two
+            screw-on
+            bottle caps, and old dowel, a bouncey ball, and some circuit boards. It's constuction too only required
+            basic
+            tools: scisors, soldering iron, and a hot glue gun.
+        </p>
+        <p>
+            I think the most impressive thing about the joystick is the melding of various, second-hand materials into
+            the
+            final product. For example, the dowel is succured by the cap to a chocolate milk jug. This give it free
+            range of
+            tilting
+            motion while restricting translating motion. Similarly, the object attached to the dowel to trigger the
+            buttons
+            is the top of a water bottle. These bottle caps, as well as the cardboard, forced me to return to our
+            families
+            recycling bin frequently. Speaking of which, nothing but the circut boards are brand new. I reused many old
+            broken things which were lying around the house to construct this joystick.
+        </p>
+        <h2>
+            How it works
+        </h2>
+        <p>
+            At the basic level, the joystick, right-click, and left-click are simply six individual buttons connected to
+            a
+            microcontroler, in this case an Arduino Yun. To ensure accurate readings of the buttons values a 270 ohm
+            pull
+            down resister is added to each button's circutry. After reading the current (or absence of) coming from each
+            of
+            the buttons, the Arduino microcontroler determines what commands to send to the computer to move the mouse.
+            The
+            mouse moving commands are all prepackaged with the Arduino software. These commands only work on a handful
+            of
+            Arduinos, hence the use of the Arduino Yun, despite the Yun's much grander abilities.
+        </p>
+        <p>
+            The buttons are positioned vertically around the dowel which makes up the joystick. As this dowel is moved
+            back
+            and forth, a bottle cap on the end presses these vertically oriented buttons. If the right button is
+            pressed,
+            the bottom of the dowel has been pushed right, meaning the top has been pushed left, and the microcontroler
+            send
+            the "Move Left" command to the computer. Similarly the other buttons are programmed to move the cursor
+            oposite
+            of the direcion they face.
+        </p>
+        <h2 style="display:none">
+            How to Build
+        </h2>
+        <h2>
+            Going Forward
+        </h2>
+        <p>
+            This build was inspired by a Lego Mindstorms creation I saw years ago on the now discontinued NXTLog. The
+            creator had made a number of these joysticks, each iteration introducing upgrades from the last. Using what
+            I
+            remembered about his designed I constucted my joystick. Like him (or her), going forward I intend to continue
+            to
+            improve on the design.
+            <ol>
+                <li>
+                    The next iteration will (hopefully) have a wooden container which will secure the joystick, buttons, microcontroler, and ciruitboards. It will
+                    be
+                    sturdier and use nicer buttons. As another feature it will also have a switch to activate different
+                    modes the joystick will be able to operate in.
+                </li>
+                <li>
+                    After that I will use a 3D printed enclosure which will allow me to add more buttons around the dowel for greater accuracey.
+                    With this iteration I intend to introduce a lot more features to the joytick. It will be pressable
+                    for a
+                    normal left click and also spin for scrolling.
+                </li>
+                <li>
+                    The final verson will have analog sensors to gain extremely accurate measurements of the
+                    joystick's tilt.
+                </li>
+            </ol>
+        </p>
+    </div>
+
+</body>
+
+</html>

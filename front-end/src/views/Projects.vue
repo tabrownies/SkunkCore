@@ -1,10 +1,10 @@
 <template>
   <div class="projects-wrapper">
-    <h2>Projects on their way!</h2>
+    <h2>My Projects</h2>
     <ul>
-      <li v-for="project of projects" v-bind:key="project.title">
+      <li class="project-list" v-for="project of projects" v-bind:key="project.title">
         <router-link :to="'/projects/'+project.link+project.linkIndex">
-          <project-link
+          <project-link 
             :description="project.description"
             :title="project.title"
           >
@@ -12,6 +12,7 @@
         </router-link>
       </li>
     </ul>
+    
   </div>
 </template>
 <script>

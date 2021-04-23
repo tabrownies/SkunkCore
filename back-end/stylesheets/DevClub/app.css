@@ -2,15 +2,54 @@
     box-sizing: border-box;
     margin:0;
     padding:0;
+    font-family: sans-serif;
 }
 
-#app header{
-    height:50px;
+.app-wrapper .app-nav{
     width:100%;
     background-color:blue;
     display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: left;
+    align-items: center;
+}
+.app-wrapper .nav-list{
+    list-style-type: none;
+    padding-left:30px;
+}
+.app-wrapper .header-link{
+    color:#eee;
+    text-decoration: none;
+    font-size: 30px;
+}
+.app-wrapper .header-link:hover{
+    color:white;
+    text-decoration: underline;
+}
+.app-wrapper #logo{
+    height: 60px;
+    padding:5px;
 }
 
-#app .header img{
-    height:40px;
+
+.app-wrapper footer{
+    height:50px;
+    width:100%;
+    background-color: blue;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    
+    bottom: 0;
 }
+.app-wrapper .footer-link{
+    font-size:20px;
+    color:#eee;
+    text-decoration: none;
+}
+.app-wrapper .footer-link:hover{
+    color:white;
+    text-decoration: underline;
+}
+

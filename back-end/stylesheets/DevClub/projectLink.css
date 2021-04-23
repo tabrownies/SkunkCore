@@ -1,0 +1,18 @@
+.project-link-wrapper{
+    border:3px solid gray;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    width:550px;
+    box-shadow: #ccc 2px 2px;
+    margin:20px;
+}
+.project-link-wrapper .title-wrapper{
+    align-self: center;
+    font-size:40px;
+}
+.project-link-wrapper .description{
+    font-size:30px;
+    padding:10px;
+}
