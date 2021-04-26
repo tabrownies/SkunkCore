@@ -7,6 +7,7 @@
           <project-link 
             :description="project.description"
             :title="project.title"
+            :img="project.mainPhotoPath"
           >
           </project-link>
         </router-link>

@@ -10,7 +10,7 @@ router.use(bodyParser.urlencoded({
 }));
 var currentSchemeId = '5fc436c92ba2b124e31743ec';
 const styleDirectory = '/Users/timothybrown/Documents/Projects/SkunkCore/back-end/stylesheets/';
-let currentDir = '/Users/timothybrown/Documents/Projects/SkunkCore/back-end/stylesheets/OG/';
+let currentDir = '/Users/timothybrown/Documents/Projects/SkunkCore/back-end/stylesheets/DevClub/';
 const colorSchemeSchema = new mongoose.Schema({
     stylesheet: String,
     name: String,

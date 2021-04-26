@@ -22,6 +22,8 @@
                 <h6>
                     ID: {{project._id}}
                 </h6>
+                <img :src="project.mainPhotoPath">
+                <input class="image-input" ref="imageInput" type="file" @input="fileChanged">
                 <textarea type="text" v-model="project.description"></textarea> 
 
                 <div>
@@ -44,9 +46,12 @@
                     description: '',
                     link:'',
                     active:'',
+                    mainPhotoPath:'',
                 },
                 projects: Array,
                 searchbarText: '',
+                url: '',
+                file: null,
             }
         },
         created: function () {
@@ -89,7 +94,19 @@
                 }
             },
             updateProject: async function (project) {
-                try {
+                //for uploading photos
+                let photoDestinationResponce;
+                if(this.file!=null){
+                    const formData = new FormData();
+                    formData.append('project-photo', this.file, this.file.name);
+                    try{
+                        photoDestinationResponce = await axios.post('/api/projects/project-photo', formData);
+                        project.mainPhotoPath = photoDestinationResponce.data.path
+                    }catch(error){
+                        console.log(error);
+                    }
+                }
+                try { 
                     await axios.put("/api/projects/" + project._id, project);
                     this.getProjects();
                 } catch (error) {
@@ -105,7 +122,11 @@
                     console.log(error);
                 }
 
-            }
+            },
+            fileChanged: function(){
+                this.file = event.target.files[0];
+                this.url = URL.createObjectURL(this.file);
+            },
         }
     }
 </script>

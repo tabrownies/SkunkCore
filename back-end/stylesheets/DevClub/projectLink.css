@@ -10,7 +10,11 @@
 }
 .project-link-wrapper .title-wrapper{
     align-self: center;
-    
+}
+.project-link-wrapper .project-image{
+    height:300px;
+    align-self: center;
+    border:1px solid black;
 }
 .project-link-wrapper .title{
     font-size: 35px;

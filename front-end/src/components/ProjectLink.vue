@@ -4,7 +4,9 @@
             <h2 class="title">
                 {{title}}
             </h2>
+            
         </div>
+        <img class="project-image" :src="img">
         <p class="description">
             {{description}}
         </p>
@@ -33,5 +35,5 @@
 </script>
 <style scoped>/*this needs to be fixed*/
     @import '/api/styles/style/projectLink.css';
-    
+     
 </style>

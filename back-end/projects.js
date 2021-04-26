@@ -1,6 +1,13 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const multer = require('multer');
+const destination = multer({
+    dest: '../front-end/public/project_images/',
+    limits: {
+        fileSize: 10000000
+    }
+});
 
 let fs = require('fs');
 
@@ -13,7 +20,7 @@ router.use(bodyParser.urlencoded({
 }));
 const projectSchema = new mongoose.Schema({
     title: String,
-    urlTitle:String,
+    urlTitle: String,
     description: String,
     tags: Array,
     type: String,
@@ -21,19 +28,22 @@ const projectSchema = new mongoose.Schema({
     link: String,
     linkIndex: Number,
     active: Boolean,
+    mainPhotoPath: String,
 })
 const Project = mongoose.model('project', projectSchema);
 //these functions are the basic getting and setting functions to manage the projects
 router.get('/', async (req, res) => {
     try {
-        let projects = await Project.find({"active":true});
+        let projects = await Project.find({
+            "active": true
+        });
         res.send(projects);
     } catch (error) {
         console.log(error);
         res.sendStatus(500);
     }
 });
-router.get('/all', isAdmin, async (req,res)=>{
+router.get('/all', isAdmin, async (req, res) => {
     try {
         let projects = await Project.find();
         res.send(projects);
@@ -55,24 +65,27 @@ router.get('/:id', async (req, res) => {
 });
 router.post('/', isAdmin, async (req, res) => {
     try {
+        //this part handles creating the file system and link names
         let linkName = '';
         let linkIndex = 0;
         for (char of req.body.title) {
             if (char === ' ') {
-                linkName+='-';
+                linkName += '-';
             } else {
-                linkName+=char;
+                linkName += char;
             }
         }
-        try{
-            await Project.find({'link':linkName}, function(err, project){
+        try {
+            await Project.find({
+                'link': linkName
+            }, function (err, project) {
                 if (err) throw err;
-                
-                linkIndex+=project.length;
+
+                linkIndex += project.length;
                 console.log(linkIndex);
-                
+
             })
-        }catch(error){
+        } catch (error) {
             console.log(error);
         }
         let project = new Project({
@@ -82,7 +95,7 @@ router.post('/', isAdmin, async (req, res) => {
             link: linkName,
             linkIndex: linkIndex,
             version: 1,
-            type: "Project Description"
+            type: "Project Description",
         });
         await project.save();
         let projectFolder = `./projects/${linkName+linkIndex}`;
@@ -94,7 +107,17 @@ router.post('/', isAdmin, async (req, res) => {
     }
 })
 
+router.post('/project-photo', isAdmin, destination.single('project-photo'), async (req, res) => {
+    if (!req.file) {
+        return res.sendStatus(400);
+      }
+    res.send({
+      path: "/project_images/" + req.file.filename
+    });
+})
+
 router.put('/:id', isAdmin, async (req, res) => {
+    console.log('project put called');
     try {
         let project = await Project.findOne({
             _id: req.params.id
@@ -103,7 +126,9 @@ router.put('/:id', isAdmin, async (req, res) => {
             project.description = req.body.description;
             project.tags = req.body.tags;
             project.active = req.body.active;
+            project.mainPhotoPath = req.body.mainPhotoPath;
             await project.save();
+            console.log(project.mainPhotoPath);
         });
         res.sendStatus(200);
     } catch (error) {
@@ -135,11 +160,11 @@ router.get('/pages/:linkNameWithIndex', async (req, res) => {
         res.sendStatus(500);
     }
 });
-router.get('/pages/:linkNameWithIndex/:fileName', async(req,res)=>{
-    try{
+router.get('/pages/:linkNameWithIndex/:fileName', async (req, res) => {
+    try {
         console.log(req.params.fileName);
         res.sendFile(`/Users/timothybrown/Documents/Projects/SkunkCore/back-end/projects/${req.params.linkNameWithIndex}/${req.params.fileName}`);
-    }catch(error){
+    } catch (error) {
         console.log(error);
     }
 })
