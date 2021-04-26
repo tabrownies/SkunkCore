@@ -4,8 +4,13 @@
     align-items: center;
 }
 .projects-wrapper h2{
-    font-size: 30px;
+    font-size: 40px;
     padding:10px;
+    color:#000080;
+    
+}
+.projects-wrapper .project-link{
+    text-decoration: none;
 }
 .projects-wrapper ul{
     display: flex;

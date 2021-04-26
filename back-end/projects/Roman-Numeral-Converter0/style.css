@@ -1,0 +1,28 @@
+.roman-container{
+    display: flex;
+    flex-direction: column;
+}
+.roman-container h1{
+    text-align: center;
+    padding:15px;
+}
+.roman-container h2{
+    font-size:30px;
+    padding:10px;
+    padding-left: 50px;
+    
+}
+.roman-container h3{
+    font-size:25px;
+    padding:10px;
+    padding-left:50px;
+}
+.roman-container p {
+    font-size: 20px;
+    padding:10px 50px;
+    
+}
+.roman-container img{
+    align-self: center;
+    height: 300px;
+}

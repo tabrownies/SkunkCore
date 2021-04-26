@@ -137,6 +137,7 @@ router.get('/pages/:linkNameWithIndex', async (req, res) => {
 });
 router.get('/pages/:linkNameWithIndex/:fileName', async(req,res)=>{
     try{
+        console.log(req.params.fileName);
         res.sendFile(`/Users/timothybrown/Documents/Projects/SkunkCore/back-end/projects/${req.params.linkNameWithIndex}/${req.params.fileName}`);
     }catch(error){
         console.log(error);

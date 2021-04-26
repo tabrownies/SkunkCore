@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link href="/api/projects/pages/Roman-Numeral-Converter0/style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    <div class="roman-container">
+        <h1>
+            Roman to Arabic Numeral Converter
+        </h1>
+        <img src="/api/projects/pages/Roman-Numeral-Converter0/example.png">
+        <h2>
+            About
+        </h2>
+        <p>
+            This small web application accepts either a Roman or Arabic Numeral and converts it to the other. It is
+            built
+            using HTML, CSS, and Javascript. I decided not to use a framework such as Vue or Angular because the
+            manipluation of the HTML DOM is quite minor. You can access it <a href="#">here</a>.
+        </p>
+        <h2>
+            Code Logic
+        </h2>
+        <h3>
+            Arabic to Roman
+        </h3>
+        <p>
+            The algoritm to convert Arabic to Roman numerals is quite simple actually. The code first checks for basic
+            error
+            cases, such as letters or floating point numbers (decimals). Then a loop begins which compares the Arabic
+            numerals magnitude to the values denoted by various combinations of Roman Numerals, such as IV = 4, L = 50.
+            Checking first for the combinations of greatest value, if the number is larger than one of the Roman Numeral
+            combinations, the equilvilant roman numeral is appended to a string and its value subtracted from the value
+            of
+            the Arabic Numeral. This process continues until the Arabic Numeral is equal to 0, the loop finishes, and
+            the
+            string of Roman Numerals is returned.
+        </p>
+        <h3>
+            Roman to Arabic
+        </h3>
+        <p>
+            Coverting Roman Numerals to Arabic Numerals required me to develop a much more complex algorithm. It
+            utilizes
+            multiple internal functions: one of which converts single Roman Numerals to their Arabic Numeral equivilant
+            and
+            the other determines which Roman Numerals can precede each other. This second function is necessary because
+            Roman Numerals denote numbers like 4 as IV instead of IIII. The Roman Numeral is stored as a string value.
+            The
+            program parses through the numeral character by character. In most cases the value of the character is added
+            to
+            a variable denoting the running sum; however, when the character following the character being parsed
+            represents
+            a value greater than it. When this is the case the program determines whether the characters are in a valid
+            order and then subtracts the value of one from the other. This new value is added to the running sum. This
+            process is completed until the entire Roman Numeral String is parsed. The running sum is then returned.
+        </p>
+        <h2>
+            My thoughts
+        </h2>
+        <p>
+            Overall the project was very fun. I implimented a lot of error catching. I then used the errors that were
+            thrown
+            to display to the user the problem. This was my first time really utilizing throw statements, and I feel I
+            leveraged their power very well.
+        </p>
+        <h2>
+            Going forward
+        </h2>
+        <p>
+            The code I wrote to convert Arabic to Roman numerals is quite clean. While I think that I could marginally
+            speed
+            up this algorithm, it would lose its generality.
+        </p>
+        <p>
+            I really want to revisit the algorithm that converts Roman to Arabic numerals. I think that is is well
+            coded,
+            but by reworking the logic, the algorithm could become a lot cleaner.
+        </p>
+    </div>
+
+</body>
+
+</html>

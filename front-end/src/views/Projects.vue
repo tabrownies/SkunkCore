@@ -3,7 +3,7 @@
     <h2>My Projects</h2>
     <ul>
       <li class="project-list" v-for="project of projects" v-bind:key="project.title">
-        <router-link :to="'/projects/'+project.link+project.linkIndex">
+        <router-link class="project-link" :to="'/projects/'+project.link+project.linkIndex">
           <project-link 
             :description="project.description"
             :title="project.title"
